@@ -1,0 +1,70 @@
+# CBD – Lab201 – 112169
+
+sudo vim /etc/mongod.conf
+    - search for " dbPath: " field, and change it to  dbPath: /mongo_data
+    - mkdir -p /mongo_data
+    - sudo chown -R mongodb:mongodb /mongo_data
+systemctl restart mongod.service
+
+The data should now be written to a custom directory.
+Some example queries:
+"""
+
+show dbs
+db.food.find()
+use food
+show dbs
+show bds
+db.food.find({ name: {$regex: "france*"}})
+db.food.find( { name : $regex: {"france*"} }  )
+db.food.updateOne({ name: "francesinha"}, { $set: {restaurants: ["SnackBar", "AutocarroBar"] } })
+db.food.find()
+db.food.find({ name: {$regex: "Ham*"}})
+db.food.find({ name: {$regex: "*ham*"}})
+db.food.find({ name: {$regex: "ham*"}})
+db.food.find({ name: {$regex: "*bur*"}})
+db.food.find({ name: {$regex: "fra*"}})
+db.food.find({ name: { $regex: "*bur*" }})
+db.food.find({ name: { $regex: "*bur*" }))
+db.food.find({ name: { $regex: "*bur*" })
+db.food.insertOne({ name: "Hamburguer", taste: 10, restaurants: ["Burger King", "McDonald's", "Bobby Burger"] });
+db.food.insertOne({ name: "Pizza", taste: 2.5, restaurants: ["Telepizza", "Piec na Szewskiej", "Pizza Hut"] });
+db.food.find({ name: {$regex: "fra*"}})
+db.food.find({ name: $regex: {"fra*"}})
+db.food.find({ name: "francesinha" })
+db.food.find({ name: "fra*" })
+db.food.updateOne({ name: "francesinha" }, {$set: { rating: 9.5 } })
+db.food.find()
+db.food.insertOne({ name: "feijoada", rating: 9 })
+db.food.find()
+db.food.find
+db.food.insertOne({ name: "francesinha" })
+db.food.find()
+show dbs
+use food
+use appdb
+show collections
+show collections;
+show dbs
+help
+help admin
+show dbs
+show users
+help
+create testdb
+admin.system.version.find();
+select * from system.version;
+use system.version
+show tables
+show dbs
+use admin
+show dbs
+select * from information_schema.tables
+
+"""
+
+mongoimport --db restaurants --collection restaurants --drop --file restaurants.json 
+use restaurants
+db.restaurants.find()
+show collections
+db.restaurants.countDocuments()

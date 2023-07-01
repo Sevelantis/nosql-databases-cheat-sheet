@@ -1,0 +1,37 @@
+// NMEC: 112169
+
+// clean
+MATCH (n) DETACH DELETE n
+
+// import
+LOAD CSV WITH HEADERS FROM 'file:///git_selection.csv' AS row
+MERGE (member: Member{svn_id: row.svn_id, name: row.real_name, organization: row.organization})
+MERGE (project: Project{name: row.project_name})
+MERGE (member)-[:COLLABORATED{role: row.role_on_project}]->(project)
+
+#1
+MATCH (member:Member) RETURN DISTINCT member
+
+#2
+MATCH (member:Member) RETURN DISTINCT member.name
+
+#3
+MATCH (member:Member)-[collaboration:COLLABORATED]->(project:Project) WITH member, project, collaboration, count(member) AS members_total WHERE 1 <= members_total AND collaboration.role <> "NA" RETURN DISTINCT project, member
+
+#4
+MATCH (member:Member)-[collaboration:COLLABORATED]->(project:Project) WHERE collaboration.role <> "NA" RETURN member.name, count(project) AS projects_total
+
+#5
+MATCH (member:Member)-[collaboration:COLLABORATED]->(project:Project) WHERE collaboration.role <> "NA" RETURN member.name, count(project) AS projects_total ORDER BY projects_total DESC
+
+#6
+MATCH (member:Member)-[collaboration:COLLABORATED]->(project:Project) RETURN project.name, count(member) AS collaborators_total
+
+#7
+MATCH (member:Member)-[collaboration:COLLABORATED]->(project:Project) WHERE collaboration.role = "Committer" return project.name, collaboration.role, count(collaboration) as commiters_total 
+
+#8
+MATCH (member1:Member{svn_id:"atm"})-[collaboration1:COLLABORATED]->(project:Project)<-[collaboration2:COLLABORATED]-(member2:Member) RETURN member1.name AS atm, member2.name, project.name
+
+#9
+MATCH (member1:Member{svn_id:"atm"})-[collaboration1:COLLABORATED]->(project:Project)<-[collaboration2:COLLABORATED]-(member2:Member) WHERE collaboration1.role = "PMC" AND collaboration2.role = "Committer" RETURN DISTINCT member2.name, project.name

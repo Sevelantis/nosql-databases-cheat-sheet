@@ -1,0 +1,1185 @@
+Clearing data...
+Adding nodes...
+Data initialized.
+[1]Running query: MATCH (n) RETURN count(n)
+[1]Result:
+	<Record count(n)=956>
+[2]Running query: MATCH (t:Teacher) RETURN t.name
+[2]Result:
+	<Record t.name='Ronna HARRIS'>
+	<Record t.name='Roslyn SMITH'>
+	<Record t.name='Rosie THOMPSON'>
+	<Record t.name='Ronni HARRIS'>
+	<Record t.name='Ronny JONES'>
+	<Record t.name='Rosamund JONES'>
+	<Record t.name='Rosabella JONES'>
+	<Record t.name='Ronna THOMPSON'>
+	<Record t.name='Roslyn HARRIS'>
+	<Record t.name='Rosette CLARK'>
+	<Record t.name='Roselle HARRIS'>
+	<Record t.name='Ronnica LEWIS'>
+	<Record t.name='Rosabelle THOMPSON'>
+	<Record t.name='Rosamond MARTINEZ'>
+	<Record t.name='Rochelle ANDERSON'>
+	<Record t.name='Rosalyn JOHNSON'>
+	<Record t.name='Roda THOMAS'>
+	<Record t.name='Rosie YOUNG'>
+	<Record t.name='Rosmunda MARTINEZ'>
+	<Record t.name='Rosella THOMPSON'>
+	<Record t.name='Roseanne ANDERSON'>
+	<Record t.name='Rodina LEWIS'>
+	<Record t.name='Rosemaria WALKER'>
+	<Record t.name='Rosanna MILLER'>
+	<Record t.name='Ronny WHITE'>
+	<Record t.name='Rosina WHITE'>
+[3]Running query: MATCH (s)-[:ENROLLED_IN]->(c) WHERE c.subject = "Software Engineering" RETURN s.nmec as NMEC, c.subject as subject_name
+[3]Result:
+	<Record NMEC='89005' subject_name='Software Engineering'>
+	<Record NMEC='88980' subject_name='Software Engineering'>
+	<Record NMEC='88985' subject_name='Software Engineering'>
+	<Record NMEC='88998' subject_name='Software Engineering'>
+	<Record NMEC='88994' subject_name='Software Engineering'>
+	<Record NMEC='89001' subject_name='Software Engineering'>
+	<Record NMEC='88986' subject_name='Software Engineering'>
+	<Record NMEC='88984' subject_name='Software Engineering'>
+	<Record NMEC='88981' subject_name='Software Engineering'>
+	<Record NMEC='88983' subject_name='Software Engineering'>
+	<Record NMEC='88987' subject_name='Software Engineering'>
+	<Record NMEC='88991' subject_name='Software Engineering'>
+	<Record NMEC='88990' subject_name='Software Engineering'>
+	<Record NMEC='88989' subject_name='Software Engineering'>
+	<Record NMEC='89004' subject_name='Software Engineering'>
+	<Record NMEC='88999' subject_name='Software Engineering'>
+	<Record NMEC='89002' subject_name='Software Engineering'>
+	<Record NMEC='88996' subject_name='Software Engineering'>
+	<Record NMEC='88979' subject_name='Software Engineering'>
+	<Record NMEC='88992' subject_name='Software Engineering'>
+	<Record NMEC='88978' subject_name='Software Engineering'>
+	<Record NMEC='88995' subject_name='Software Engineering'>
+	<Record NMEC='88993' subject_name='Software Engineering'>
+	<Record NMEC='89000' subject_name='Software Engineering'>
+	<Record NMEC='88988' subject_name='Software Engineering'>
+	<Record NMEC='89003' subject_name='Software Engineering'>
+	<Record NMEC='89006' subject_name='Software Engineering'>
+	<Record NMEC='89007' subject_name='Software Engineering'>
+	<Record NMEC='88982' subject_name='Software Engineering'>
+	<Record NMEC='88997' subject_name='Software Engineering'>
+[4]Running query: MATCH (t:Teacher)-[leads:LEADS]->(c:Class) RETURN t.name, c.subject
+[4]Result:
+	<Record t.name='Ronna HARRIS' c.subject='Mobile Computing'>
+	<Record t.name='Ronna HARRIS' c.subject='Japanese C2'>
+	<Record t.name='Roslyn SMITH' c.subject='Analysis and Exploration of Vulnerabilities'>
+	<Record t.name='Rosie THOMPSON' c.subject='Databases'>
+	<Record t.name='Ronni HARRIS' c.subject='Security Information and Organization'>
+	<Record t.name='Ronny JONES' c.subject='Software Engineering'>
+	<Record t.name='Rosamund JONES' c.subject="Master's Thesis">
+	<Record t.name='Rosabella JONES' c.subject='Portuguese A1'>
+	<Record t.name='Ronna THOMPSON' c.subject='Portuguese A2'>
+	<Record t.name='Roslyn HARRIS' c.subject='Integrated Project ManagementPortuguese B1'>
+	<Record t.name='Rosette CLARK' c.subject='Portuguese B2'>
+	<Record t.name='Roselle HARRIS' c.subject='Portuguese C1'>
+	<Record t.name='Ronnica LEWIS' c.subject='Portuguese C2'>
+	<Record t.name='Rosabelle THOMPSON' c.subject='Polish B1'>
+	<Record t.name='Rosabelle THOMPSON' c.subject='Polish A2'>
+	<Record t.name='Rosabelle THOMPSON' c.subject='Polish A1'>
+	<Record t.name='Rosamond MARTINEZ' c.subject='Polish B2'>
+	<Record t.name='Rochelle ANDERSON' c.subject='Polish C1'>
+	<Record t.name='Rochelle ANDERSON' c.subject='Polish C2'>
+	<Record t.name='Rosalyn JOHNSON' c.subject='English A1'>
+	<Record t.name='Roda THOMAS' c.subject='English A2'>
+	<Record t.name='Rosie YOUNG' c.subject='English B1'>
+	<Record t.name='Rosmunda MARTINEZ' c.subject='English B2'>
+	<Record t.name='Rosella THOMPSON' c.subject='English C1'>
+	<Record t.name='Roseanne ANDERSON' c.subject='English C2'>
+	<Record t.name='Rodina LEWIS' c.subject='Japanese A1'>
+	<Record t.name='Rosemaria WALKER' c.subject='Japanese A2'>
+	<Record t.name='Rosanna MILLER' c.subject='Japanese B1'>
+	<Record t.name='Ronny WHITE' c.subject='Japanese B2'>
+	<Record t.name='Rosina WHITE' c.subject='Japanese C1'>
+[5]Running query: MATCH (t:Teacher)-[leads:LEADS]->(c:Class) WITH t, count(c) as classes_amount, count(t) AS teachers_total WHERE 1 < teachers_total RETURN t.name, classes_amount
+[5]Result:
+	<Record t.name='Ronna HARRIS' classes_amount=2>
+	<Record t.name='Rosabelle THOMPSON' classes_amount=3>
+	<Record t.name='Rochelle ANDERSON' classes_amount=2>
+[6]Running query: MATCH (c:Class) WHERE c.exam_date > "2023-01-20" RETURN c.subject, c.exam_date ORDER BY c.exam_date ASC
+[6]Result:
+	<Record c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record c.subject='English C2' c.exam_date='2023-01-23'>
+	<Record c.subject='Portuguese C2' c.exam_date='2023-01-24'>
+	<Record c.subject='Polish C1' c.exam_date='2023-01-26'>
+	<Record c.subject='English B1' c.exam_date='2023-02-02'>
+	<Record c.subject='Japanese C1' c.exam_date='2023-02-04'>
+	<Record c.subject='Japanese B1' c.exam_date='2023-02-06'>
+	<Record c.subject='Portuguese A2' c.exam_date='2023-02-07'>
+	<Record c.subject='Polish B1' c.exam_date='2023-02-07'>
+	<Record c.subject='Japanese A1' c.exam_date='2023-02-10'>
+	<Record c.subject='Analysis and Exploration of Vulnerabilities' c.exam_date='2023-02-11'>
+	<Record c.subject='Japanese B2' c.exam_date='2023-02-14'>
+	<Record c.subject='Polish C2' c.exam_date='2023-02-17'>
+	<Record c.subject='English A1' c.exam_date='2023-02-18'>
+	<Record c.subject='Japanese A2' c.exam_date='2023-02-21'>
+	<Record c.subject='Japanese C2' c.exam_date='2023-02-25'>
+	<Record c.subject='Software Engineering' c.exam_date='2023-02-25'>
+	<Record c.subject='Security Information and Organization' c.exam_date='2023-02-27'>
+	<Record c.subject='English A2' c.exam_date='2023-02-27'>
+[7]Running query: MATCH (s:Student)-[:ENROLLED_IN]->(c:Class) WHERE c.exam_date = "2023-01-22" RETURN s.name, s.nmec, c.subject, c.exam_date ORDER BY s.nmec DESC
+[7]Result:
+	<Record s.name='Rosalind THOMAS' s.nmec='89517' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Roseanna LEWIS' s.nmec='89516' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rochella WHITE' s.nmec='89515' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Roselin CLARK' s.nmec='89514' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosmunda WHITE' s.nmec='89513' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosette TAYLOR' s.nmec='89512' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosina MILLER' s.nmec='89511' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosene LEWIS' s.nmec='89510' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rora ROBINSON' s.nmec='89509' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Ronni ROBINSON' s.nmec='89508' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rona ALLEN' s.nmec='89507' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosie DAVIS' s.nmec='89506' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rorie THOMPSON' s.nmec='89505' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Ronny WILLIAMS' s.nmec='89504' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Ros LEWIS' s.nmec='89503' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rose DAVIS' s.nmec='89502' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosmunda ROBINSON' s.nmec='89501' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rodina HALL' s.nmec='89500' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosmunda WHITE' s.nmec='89499' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rory SMITH' s.nmec='89498' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosamond MOORE' s.nmec='89497' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rodi WHITE' s.nmec='89496' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosella JONES' s.nmec='89495' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosalinde CLARK' s.nmec='89494' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rochella WILSON' s.nmec='89493' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Romona HARRIS' s.nmec='89492' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rois MILLER' s.nmec='89491' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosella RODRIGUEZ' s.nmec='89490' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Roseline DAVIS' s.nmec='89489' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Ros TAYLOR' s.nmec='89488' c.subject='English B2' c.exam_date='2023-01-22'>
+	<Record s.name='Rosalind JOHNSON' s.nmec='89187' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Ronica DAVIS' s.nmec='89186' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosanna WALKER' s.nmec='89185' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosina JACKSON' s.nmec='89184' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosalyn SMITH' s.nmec='89183' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Romy ANDERSON' s.nmec='89182' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Ronalda ROBINSON' s.nmec='89181' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosabel JONES' s.nmec='89180' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Ros WALKER' s.nmec='89179' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Roseanna JACKSON' s.nmec='89178' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosie MARTINEZ' s.nmec='89177' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosella DAVIS' s.nmec='89176' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosalinda JOHNSON' s.nmec='89175' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Ronica YOUNG' s.nmec='89174' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Roobbie WHITE' s.nmec='89173' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosabelle ALLEN' s.nmec='89172' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosie LEE' s.nmec='89171' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Roda SMITH' s.nmec='89170' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosemarie BROWN' s.nmec='89169' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosaline HARRIS' s.nmec='89168' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosmunda ANDERSON' s.nmec='89167' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rochelle GARCIA' s.nmec='89166' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosamond JACKSON' s.nmec='89165' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rose YOUNG' s.nmec='89164' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosie MARTIN' s.nmec='89163' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosaleen CLARK' s.nmec='89162' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosette THOMPSON' s.nmec='89161' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosette CLARK' s.nmec='89160' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosabel TAYLOR' s.nmec='89159' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosella YOUNG' s.nmec='89158' c.subject='Portuguese C1' c.exam_date='2023-01-22'>
+	<Record s.name='Ronda JACKSON' s.nmec='89127' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rose ANDERSON' s.nmec='89126' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosalyn WILLIAMS' s.nmec='89125' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosamund MARTINEZ' s.nmec='89124' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rois HARRIS' s.nmec='89123' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosalinde JOHNSON' s.nmec='89122' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosabelle WILLIAMS' s.nmec='89121' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rori ANDERSON' s.nmec='89120' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosemaria SMITH' s.nmec='89119' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Roseanne DAVIS' s.nmec='89118' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Ronnica ROBINSON' s.nmec='89117' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosene JACKSON' s.nmec='89116' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Ros RODRIGUEZ' s.nmec='89115' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosalinde WALKER' s.nmec='89114' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rois MARTINEZ' s.nmec='89113' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosetta HARRIS' s.nmec='89112' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosaline GARCIA' s.nmec='89111' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rochell LEE' s.nmec='89110' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Romy CLARK' s.nmec='89109' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosina HARRIS' s.nmec='89108' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Roshelle THOMPSON' s.nmec='89107' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosa ANDERSON' s.nmec='89106' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rochell RODRIGUEZ' s.nmec='89105' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Roobbie WALKER' s.nmec='89104' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosemonde ALLEN' s.nmec='89103' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rose GARCIA' s.nmec='89102' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Roselle WHITE' s.nmec='89101' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rodina ALLEN' s.nmec='89100' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rosalynd DAVIS' s.nmec='89099' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+	<Record s.name='Rochelle MOORE' s.nmec='89098' c.subject='Integrated Project ManagementPortuguese B1' c.exam_date='2023-01-22'>
+[8]Running query: MATCH (s:Student)-[:ENROLLED_IN]->(c:Class)<-[:LEADS]-(t:Teacher) RETURN DISTINCT t.name, s.name, s.nmec ORDER BY s.nmec ASC
+[8]Result:
+	<Record t.name='Roslyn SMITH' s.name='Roobbie SMITH' s.nmec='88888'>
+	<Record t.name='Roslyn SMITH' s.name='Ronica GARCIA' s.nmec='88889'>
+	<Record t.name='Roslyn SMITH' s.name='Ronda RODRIGUEZ' s.nmec='88890'>
+	<Record t.name='Roslyn SMITH' s.name='Ronni ALLEN' s.nmec='88891'>
+	<Record t.name='Roslyn SMITH' s.name='Roseanne HALL' s.nmec='88892'>
+	<Record t.name='Roslyn SMITH' s.name='Rosemary SMITH' s.nmec='88893'>
+	<Record t.name='Roslyn SMITH' s.name='Roslyn TAYLOR' s.nmec='88894'>
+	<Record t.name='Roslyn SMITH' s.name='Ronnica TAYLOR' s.nmec='88895'>
+	<Record t.name='Roslyn SMITH' s.name='Roseanna MARTINEZ' s.nmec='88896'>
+	<Record t.name='Roslyn SMITH' s.name='Rosemonde MILLER' s.nmec='88897'>
+	<Record t.name='Roslyn SMITH' s.name='Ronnie WILSON' s.nmec='88898'>
+	<Record t.name='Roslyn SMITH' s.name='Romola DAVIS' s.nmec='88899'>
+	<Record t.name='Roslyn SMITH' s.name='Roch WHITE' s.nmec='88900'>
+	<Record t.name='Roslyn SMITH' s.name='Roseanne HALL' s.nmec='88901'>
+	<Record t.name='Roslyn SMITH' s.name='Rosanna JACKSON' s.nmec='88902'>
+	<Record t.name='Roslyn SMITH' s.name='Ronnica GARCIA' s.nmec='88903'>
+	<Record t.name='Roslyn SMITH' s.name='Rosemary LEE' s.nmec='88904'>
+	<Record t.name='Roslyn SMITH' s.name='Romonda MOORE' s.nmec='88905'>
+	<Record t.name='Roslyn SMITH' s.name='Rosalie LEE' s.nmec='88906'>
+	<Record t.name='Roslyn SMITH' s.name='Rora WILSON' s.nmec='88907'>
+	<Record t.name='Roslyn SMITH' s.name='Rosaline ALLEN' s.nmec='88908'>
+	<Record t.name='Roslyn SMITH' s.name='Roselle WILSON' s.nmec='88909'>
+	<Record t.name='Roslyn SMITH' s.name='Romola MOORE' s.nmec='88910'>
+	<Record t.name='Roslyn SMITH' s.name='Romona JACKSON' s.nmec='88911'>
+	<Record t.name='Roslyn SMITH' s.name='Roseann ALLEN' s.nmec='88912'>
+	<Record t.name='Roslyn SMITH' s.name='Ros WILLIAMS' s.nmec='88913'>
+	<Record t.name='Roslyn SMITH' s.name='Ronnie TAYLOR' s.nmec='88914'>
+	<Record t.name='Roslyn SMITH' s.name='Rosanne WILSON' s.nmec='88915'>
+	<Record t.name='Roslyn SMITH' s.name='Rosabella THOMPSON' s.nmec='88916'>
+	<Record t.name='Roslyn SMITH' s.name='Ronalda WHITE' s.nmec='88917'>
+	<Record t.name='Rosie THOMPSON' s.name='Rochell MILLER' s.nmec='88918'>
+	<Record t.name='Rosie THOMPSON' s.name='Ronnica TAYLOR' s.nmec='88919'>
+	<Record t.name='Rosie THOMPSON' s.name='Roch WILSON' s.nmec='88920'>
+	<Record t.name='Rosie THOMPSON' s.name='Rodina THOMPSON' s.nmec='88921'>
+	<Record t.name='Rosie THOMPSON' s.name='Romy MILLER' s.nmec='88922'>
+	<Record t.name='Rosie THOMPSON' s.name='Roobbie THOMPSON' s.nmec='88923'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosa ALLEN' s.nmec='88924'>
+	<Record t.name='Rosie THOMPSON' s.name='Ronni GARCIA' s.nmec='88925'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosana MARTINEZ' s.nmec='88926'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosalyn YOUNG' s.nmec='88927'>
+	<Record t.name='Rosie THOMPSON' s.name='Roseanna ALLEN' s.nmec='88928'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosa MARTINEZ' s.nmec='88929'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosie YOUNG' s.nmec='88930'>
+	<Record t.name='Rosie THOMPSON' s.name='Roch DAVIS' s.nmec='88931'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosana JOHNSON' s.nmec='88932'>
+	<Record t.name='Rosie THOMPSON' s.name='Rochelle MOORE' s.nmec='88933'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosanna JACKSON' s.nmec='88934'>
+	<Record t.name='Rosie THOMPSON' s.name='Roselle DAVIS' s.nmec='88935'>
+	<Record t.name='Rosie THOMPSON' s.name='Rona CLARK' s.nmec='88936'>
+	<Record t.name='Rosie THOMPSON' s.name='Roseline BROWN' s.nmec='88937'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosene WALKER' s.nmec='88938'>
+	<Record t.name='Rosie THOMPSON' s.name='Rose SMITH' s.nmec='88939'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosemaria MOORE' s.nmec='88940'>
+	<Record t.name='Rosie THOMPSON' s.name='Rochella JACKSON' s.nmec='88941'>
+	<Record t.name='Rosie THOMPSON' s.name='Ronna JOHNSON' s.nmec='88942'>
+	<Record t.name='Rosie THOMPSON' s.name='Ronda ROBINSON' s.nmec='88943'>
+	<Record t.name='Rosie THOMPSON' s.name='Roselia MILLER' s.nmec='88944'>
+	<Record t.name='Rosie THOMPSON' s.name='Rora LEE' s.nmec='88945'>
+	<Record t.name='Rosie THOMPSON' s.name='Roslyn ANDERSON' s.nmec='88946'>
+	<Record t.name='Rosie THOMPSON' s.name='Rosina WILSON' s.nmec='88947'>
+	<Record t.name='Ronni HARRIS' s.name='Rosamund GARCIA' s.nmec='88948'>
+	<Record t.name='Ronni HARRIS' s.name='Ronny WILSON' s.nmec='88949'>
+	<Record t.name='Ronni HARRIS' s.name='Rora YOUNG' s.nmec='88950'>
+	<Record t.name='Ronni HARRIS' s.name='Ronalda ROBINSON' s.nmec='88951'>
+	<Record t.name='Ronni HARRIS' s.name='Rosalind LEWIS' s.nmec='88952'>
+	<Record t.name='Ronni HARRIS' s.name='Rosette BROWN' s.nmec='88953'>
+	<Record t.name='Ronni HARRIS' s.name='Roselle BROWN' s.nmec='88954'>
+	<Record t.name='Ronni HARRIS' s.name='Rosmunda ANDERSON' s.nmec='88955'>
+	<Record t.name='Ronni HARRIS' s.name='Ros HARRIS' s.nmec='88956'>
+	<Record t.name='Ronni HARRIS' s.name='Rois ALLEN' s.nmec='88957'>
+	<Record t.name='Ronni HARRIS' s.name='Rodi THOMPSON' s.nmec='88958'>
+	<Record t.name='Ronni HARRIS' s.name='Rodi JONES' s.nmec='88959'>
+	<Record t.name='Ronni HARRIS' s.name='Rosalyn SMITH' s.nmec='88960'>
+	<Record t.name='Ronni HARRIS' s.name='Rois CLARK' s.nmec='88961'>
+	<Record t.name='Ronni HARRIS' s.name='Roslyn RODRIGUEZ' s.nmec='88962'>
+	<Record t.name='Ronni HARRIS' s.name='Rochella LEE' s.nmec='88963'>
+	<Record t.name='Ronni HARRIS' s.name='Roseanna JACKSON' s.nmec='88964'>
+	<Record t.name='Ronni HARRIS' s.name='Rodie ALLEN' s.nmec='88965'>
+	<Record t.name='Ronni HARRIS' s.name='Rosamond MOORE' s.nmec='88966'>
+	<Record t.name='Ronni HARRIS' s.name='Rosabella WALKER' s.nmec='88967'>
+	<Record t.name='Ronni HARRIS' s.name='Rori MARTINEZ' s.nmec='88968'>
+	<Record t.name='Ronni HARRIS' s.name='Rory MARTIN' s.nmec='88969'>
+	<Record t.name='Ronni HARRIS' s.name='Roseanna HARRIS' s.nmec='88970'>
+	<Record t.name='Ronni HARRIS' s.name='Rosene THOMPSON' s.nmec='88971'>
+	<Record t.name='Ronni HARRIS' s.name='Rosella JONES' s.nmec='88972'>
+	<Record t.name='Ronni HARRIS' s.name='Rochelle RODRIGUEZ' s.nmec='88973'>
+	<Record t.name='Ronni HARRIS' s.name='Rosemary LEE' s.nmec='88974'>
+	<Record t.name='Ronni HARRIS' s.name='Ros MARTIN' s.nmec='88975'>
+	<Record t.name='Ronni HARRIS' s.name='Rosaline LEE' s.nmec='88976'>
+	<Record t.name='Ronni HARRIS' s.name='Rosita MILLER' s.nmec='88977'>
+	<Record t.name='Ronny JONES' s.name='Roseann MARTINEZ' s.nmec='88978'>
+	<Record t.name='Ronny JONES' s.name='Roselle YOUNG' s.nmec='88979'>
+	<Record t.name='Ronny JONES' s.name='Roseann WILLIAMS' s.nmec='88980'>
+	<Record t.name='Ronny JONES' s.name='Rosaleen JOHNSON' s.nmec='88981'>
+	<Record t.name='Ronny JONES' s.name='Romonda WILLIAMS' s.nmec='88982'>
+	<Record t.name='Ronny JONES' s.name='Rosabel WILSON' s.nmec='88983'>
+	<Record t.name='Ronny JONES' s.name='Ronalda JONES' s.nmec='88984'>
+	<Record t.name='Ronny JONES' s.name='Rosalinde TAYLOR' s.nmec='88985'>
+	<Record t.name='Ronny JONES' s.name='Rochell MILLER' s.nmec='88986'>
+	<Record t.name='Ronny JONES' s.name='Rosina SMITH' s.nmec='88987'>
+	<Record t.name='Ronny JONES' s.name='Rosa MILLER' s.nmec='88988'>
+	<Record t.name='Ronny JONES' s.name='Ronica JOHNSON' s.nmec='88989'>
+	<Record t.name='Ronny JONES' s.name='Rochell WILLIAMS' s.nmec='88990'>
+	<Record t.name='Ronny JONES' s.name='Roseann HALL' s.nmec='88991'>
+	<Record t.name='Ronny JONES' s.name='Rosetta JACKSON' s.nmec='88992'>
+	<Record t.name='Ronny JONES' s.name='Rochell HARRIS' s.nmec='88993'>
+	<Record t.name='Ronny JONES' s.name='Romona MARTINEZ' s.nmec='88994'>
+	<Record t.name='Ronny JONES' s.name='Rory YOUNG' s.nmec='88995'>
+	<Record t.name='Ronny JONES' s.name='Roshelle DAVIS' s.nmec='88996'>
+	<Record t.name='Ronny JONES' s.name='Rosella RODRIGUEZ' s.nmec='88997'>
+	<Record t.name='Ronny JONES' s.name='Roseanna RODRIGUEZ' s.nmec='88998'>
+	<Record t.name='Ronny JONES' s.name='Rosalynd WILLIAMS' s.nmec='88999'>
+	<Record t.name='Ronny JONES' s.name='Ronda MOORE' s.nmec='89000'>
+	<Record t.name='Ronny JONES' s.name='Ronnie MOORE' s.nmec='89001'>
+	<Record t.name='Ronny JONES' s.name='Romonda GARCIA' s.nmec='89002'>
+	<Record t.name='Ronny JONES' s.name='Rosella WILSON' s.nmec='89003'>
+	<Record t.name='Ronny JONES' s.name='Rosina MILLER' s.nmec='89004'>
+	<Record t.name='Ronny JONES' s.name='Rosamund MARTINEZ' s.nmec='89005'>
+	<Record t.name='Ronny JONES' s.name='Rosalyn THOMAS' s.nmec='89006'>
+	<Record t.name='Ronny JONES' s.name='Rose GARCIA' s.nmec='89007'>
+	<Record t.name='Rosamund JONES' s.name='Rosemarie RODRIGUEZ' s.nmec='89008'>
+	<Record t.name='Rosamund JONES' s.name='Roseanna BROWN' s.nmec='89009'>
+	<Record t.name='Rosamund JONES' s.name='Rosamond SMITH' s.nmec='89010'>
+	<Record t.name='Rosamund JONES' s.name='Roch THOMPSON' s.nmec='89011'>
+	<Record t.name='Rosamund JONES' s.name='Rosamond ALLEN' s.nmec='89012'>
+	<Record t.name='Rosamund JONES' s.name='Rosemaria THOMAS' s.nmec='89013'>
+	<Record t.name='Rosamund JONES' s.name='Ronnica JACKSON' s.nmec='89014'>
+	<Record t.name='Rosamund JONES' s.name='Roobbie YOUNG' s.nmec='89015'>
+	<Record t.name='Rosamund JONES' s.name='Ronna THOMAS' s.nmec='89016'>
+	<Record t.name='Rosamund JONES' s.name='Romy TAYLOR' s.nmec='89017'>
+	<Record t.name='Rosamund JONES' s.name='Roch DAVIS' s.nmec='89018'>
+	<Record t.name='Rosamund JONES' s.name='Rosemaria MARTIN' s.nmec='89019'>
+	<Record t.name='Rosamund JONES' s.name='Roseline WALKER' s.nmec='89020'>
+	<Record t.name='Rosamund JONES' s.name='Ronnie MARTINEZ' s.nmec='89021'>
+	<Record t.name='Rosamund JONES' s.name='Ronnie RODRIGUEZ' s.nmec='89022'>
+	<Record t.name='Rosamund JONES' s.name='Roseanna HALL' s.nmec='89023'>
+	<Record t.name='Rosamund JONES' s.name='Rosmunda YOUNG' s.nmec='89024'>
+	<Record t.name='Rosamund JONES' s.name='Roseline SMITH' s.nmec='89025'>
+	<Record t.name='Rosamund JONES' s.name='Rosaline MILLER' s.nmec='89026'>
+	<Record t.name='Rosamund JONES' s.name='Rochelle MARTIN' s.nmec='89027'>
+	<Record t.name='Rosamund JONES' s.name='Rosabelle THOMPSON' s.nmec='89028'>
+	<Record t.name='Rosamund JONES' s.name='Ronda WHITE' s.nmec='89029'>
+	<Record t.name='Rosamund JONES' s.name='Roseanna RODRIGUEZ' s.nmec='89030'>
+	<Record t.name='Rosamund JONES' s.name='Roselle TAYLOR' s.nmec='89031'>
+	<Record t.name='Rosamund JONES' s.name='Roseline CLARK' s.nmec='89032'>
+	<Record t.name='Rosamund JONES' s.name='Rosalind YOUNG' s.nmec='89033'>
+	<Record t.name='Rosamund JONES' s.name='Rosemaria TAYLOR' s.nmec='89034'>
+	<Record t.name='Rosamund JONES' s.name='Rosamund JACKSON' s.nmec='89035'>
+	<Record t.name='Rosamund JONES' s.name='Rosetta WHITE' s.nmec='89036'>
+	<Record t.name='Rosamund JONES' s.name='Roselle MOORE' s.nmec='89037'>
+	<Record t.name='Rosabella JONES' s.name='Rory MARTIN' s.nmec='89038'>
+	<Record t.name='Rosabella JONES' s.name='Rosaline MARTIN' s.nmec='89039'>
+	<Record t.name='Rosabella JONES' s.name='Rosemonde YOUNG' s.nmec='89040'>
+	<Record t.name='Rosabella JONES' s.name='Rodie SMITH' s.nmec='89041'>
+	<Record t.name='Rosabella JONES' s.name='Romy BROWN' s.nmec='89042'>
+	<Record t.name='Rosabella JONES' s.name='Rochette LEE' s.nmec='89043'>
+	<Record t.name='Rosabella JONES' s.name='Rosemonde WILLIAMS' s.nmec='89044'>
+	<Record t.name='Rosabella JONES' s.name='Rose YOUNG' s.nmec='89045'>
+	<Record t.name='Rosabella JONES' s.name='Roseanna ANDERSON' s.nmec='89046'>
+	<Record t.name='Rosabella JONES' s.name='Rosie WILSON' s.nmec='89047'>
+	<Record t.name='Rosabella JONES' s.name='Rosabel CLARK' s.nmec='89048'>
+	<Record t.name='Rosabella JONES' s.name='Romola ROBINSON' s.nmec='89049'>
+	<Record t.name='Rosabella JONES' s.name='Roselle MOORE' s.nmec='89050'>
+	<Record t.name='Rosabella JONES' s.name='Ronnie MOORE' s.nmec='89051'>
+	<Record t.name='Rosabella JONES' s.name='Romonda JONES' s.nmec='89052'>
+	<Record t.name='Rosabella JONES' s.name='Rosaleen RODRIGUEZ' s.nmec='89053'>
+	<Record t.name='Rosabella JONES' s.name='Ronica WHITE' s.nmec='89054'>
+	<Record t.name='Rosabella JONES' s.name='Romonda MARTINEZ' s.nmec='89055'>
+	<Record t.name='Rosabella JONES' s.name='Rosemarie BROWN' s.nmec='89056'>
+	<Record t.name='Rosabella JONES' s.name='Rosanna MARTIN' s.nmec='89057'>
+	<Record t.name='Rosabella JONES' s.name='Rodi WALKER' s.nmec='89058'>
+	<Record t.name='Rosabella JONES' s.name='Rosana WHITE' s.nmec='89059'>
+	<Record t.name='Rosabella JONES' s.name='Rosabella WILLIAMS' s.nmec='89060'>
+	<Record t.name='Rosabella JONES' s.name='Rosa THOMPSON' s.nmec='89061'>
+	<Record t.name='Rosabella JONES' s.name='Rose BROWN' s.nmec='89062'>
+	<Record t.name='Rosabella JONES' s.name='Rochella MILLER' s.nmec='89063'>
+	<Record t.name='Rosabella JONES' s.name='Rosemarie LEWIS' s.nmec='89064'>
+	<Record t.name='Rosabella JONES' s.name='Roseanne YOUNG' s.nmec='89065'>
+	<Record t.name='Rosabella JONES' s.name='Rochell ANDERSON' s.nmec='89066'>
+	<Record t.name='Rosabella JONES' s.name='Rorie ROBINSON' s.nmec='89067'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosamond MILLER' s.nmec='89068'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosanna WHITE' s.nmec='89069'>
+	<Record t.name='Ronna THOMPSON' s.name='Roobbie RODRIGUEZ' s.nmec='89070'>
+	<Record t.name='Ronna THOMPSON' s.name='Rori JACKSON' s.nmec='89071'>
+	<Record t.name='Ronna THOMPSON' s.name='Rodie JONES' s.nmec='89072'>
+	<Record t.name='Ronna THOMPSON' s.name='Ronica ALLEN' s.nmec='89073'>
+	<Record t.name='Ronna THOMPSON' s.name='Rose RODRIGUEZ' s.nmec='89074'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosabelle THOMPSON' s.nmec='89075'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosabelle BROWN' s.nmec='89076'>
+	<Record t.name='Ronna THOMPSON' s.name='Rochette LEWIS' s.nmec='89077'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosamund JACKSON' s.nmec='89078'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosalyn ALLEN' s.nmec='89079'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosalind ROBINSON' s.nmec='89080'>
+	<Record t.name='Ronna THOMPSON' s.name='Rochelle MARTIN' s.nmec='89081'>
+	<Record t.name='Ronna THOMPSON' s.name='Rodina ANDERSON' s.nmec='89082'>
+	<Record t.name='Ronna THOMPSON' s.name='Rona JACKSON' s.nmec='89083'>
+	<Record t.name='Ronna THOMPSON' s.name='Romy BROWN' s.nmec='89084'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosabel YOUNG' s.nmec='89085'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosalynd HARRIS' s.nmec='89086'>
+	<Record t.name='Ronna THOMPSON' s.name='Rose JOHNSON' s.nmec='89087'>
+	<Record t.name='Ronna THOMPSON' s.name='Roselle RODRIGUEZ' s.nmec='89088'>
+	<Record t.name='Ronna THOMPSON' s.name='Rosemary HALL' s.nmec='89089'>
+	<Record t.name='Ronna THOMPSON' s.name='Rori TAYLOR' s.nmec='89090'>
+	<Record t.name='Ronna THOMPSON' s.name='Rochelle HALL' s.nmec='89091'>
+	<Record t.name='Ronna THOMPSON' s.name='Rona MARTIN' s.nmec='89092'>
+	<Record t.name='Ronna THOMPSON' s.name='Rois YOUNG' s.nmec='89093'>
+	<Record t.name='Ronna THOMPSON' s.name='Rochella TAYLOR' s.nmec='89094'>
+	<Record t.name='Ronna THOMPSON' s.name='Roda MARTIN' s.nmec='89095'>
+	<Record t.name='Ronna THOMPSON' s.name='Rori JACKSON' s.nmec='89096'>
+	<Record t.name='Ronna THOMPSON' s.name='Roseann THOMAS' s.nmec='89097'>
+	<Record t.name='Roslyn HARRIS' s.name='Rochelle MOORE' s.nmec='89098'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosalynd DAVIS' s.nmec='89099'>
+	<Record t.name='Roslyn HARRIS' s.name='Rodina ALLEN' s.nmec='89100'>
+	<Record t.name='Roslyn HARRIS' s.name='Roselle WHITE' s.nmec='89101'>
+	<Record t.name='Roslyn HARRIS' s.name='Rose GARCIA' s.nmec='89102'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosemonde ALLEN' s.nmec='89103'>
+	<Record t.name='Roslyn HARRIS' s.name='Roobbie WALKER' s.nmec='89104'>
+	<Record t.name='Roslyn HARRIS' s.name='Rochell RODRIGUEZ' s.nmec='89105'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosa ANDERSON' s.nmec='89106'>
+	<Record t.name='Roslyn HARRIS' s.name='Roshelle THOMPSON' s.nmec='89107'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosina HARRIS' s.nmec='89108'>
+	<Record t.name='Roslyn HARRIS' s.name='Romy CLARK' s.nmec='89109'>
+	<Record t.name='Roslyn HARRIS' s.name='Rochell LEE' s.nmec='89110'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosaline GARCIA' s.nmec='89111'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosetta HARRIS' s.nmec='89112'>
+	<Record t.name='Roslyn HARRIS' s.name='Rois MARTINEZ' s.nmec='89113'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosalinde WALKER' s.nmec='89114'>
+	<Record t.name='Roslyn HARRIS' s.name='Ros RODRIGUEZ' s.nmec='89115'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosene JACKSON' s.nmec='89116'>
+	<Record t.name='Roslyn HARRIS' s.name='Ronnica ROBINSON' s.nmec='89117'>
+	<Record t.name='Roslyn HARRIS' s.name='Roseanne DAVIS' s.nmec='89118'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosemaria SMITH' s.nmec='89119'>
+	<Record t.name='Roslyn HARRIS' s.name='Rori ANDERSON' s.nmec='89120'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosabelle WILLIAMS' s.nmec='89121'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosalinde JOHNSON' s.nmec='89122'>
+	<Record t.name='Roslyn HARRIS' s.name='Rois HARRIS' s.nmec='89123'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosamund MARTINEZ' s.nmec='89124'>
+	<Record t.name='Roslyn HARRIS' s.name='Rosalyn WILLIAMS' s.nmec='89125'>
+	<Record t.name='Roslyn HARRIS' s.name='Rose ANDERSON' s.nmec='89126'>
+	<Record t.name='Roslyn HARRIS' s.name='Ronda JACKSON' s.nmec='89127'>
+	<Record t.name='Rosette CLARK' s.name='Roshelle JOHNSON' s.nmec='89128'>
+	<Record t.name='Rosette CLARK' s.name='Rosamund JONES' s.nmec='89129'>
+	<Record t.name='Rosette CLARK' s.name='Rosmunda MARTINEZ' s.nmec='89130'>
+	<Record t.name='Rosette CLARK' s.name='Rory RODRIGUEZ' s.nmec='89131'>
+	<Record t.name='Rosette CLARK' s.name='Rodi MARTIN' s.nmec='89132'>
+	<Record t.name='Rosette CLARK' s.name='Rosanne WHITE' s.nmec='89133'>
+	<Record t.name='Rosette CLARK' s.name='Romonda WILSON' s.nmec='89134'>
+	<Record t.name='Rosette CLARK' s.name='Rorie MOORE' s.nmec='89135'>
+	<Record t.name='Rosette CLARK' s.name='Ros JONES' s.nmec='89136'>
+	<Record t.name='Rosette CLARK' s.name='Rosana HALL' s.nmec='89137'>
+	<Record t.name='Rosette CLARK' s.name='Rona MARTINEZ' s.nmec='89138'>
+	<Record t.name='Rosette CLARK' s.name='Roch BROWN' s.nmec='89139'>
+	<Record t.name='Rosette CLARK' s.name='Rosalinde WILSON' s.nmec='89140'>
+	<Record t.name='Rosette CLARK' s.name='Rosabella HALL' s.nmec='89141'>
+	<Record t.name='Rosette CLARK' s.name='Rochelle RODRIGUEZ' s.nmec='89142'>
+	<Record t.name='Rosette CLARK' s.name='Roseanna JOHNSON' s.nmec='89143'>
+	<Record t.name='Rosette CLARK' s.name='Roseanne GARCIA' s.nmec='89144'>
+	<Record t.name='Rosette CLARK' s.name='Rose WHITE' s.nmec='89145'>
+	<Record t.name='Rosette CLARK' s.name='Roseanna WILLIAMS' s.nmec='89146'>
+	<Record t.name='Rosette CLARK' s.name='Rochell MARTINEZ' s.nmec='89147'>
+	<Record t.name='Rosette CLARK' s.name='Rosalia MOORE' s.nmec='89148'>
+	<Record t.name='Rosette CLARK' s.name='Roseline MARTIN' s.nmec='89149'>
+	<Record t.name='Rosette CLARK' s.name='Rosella RODRIGUEZ' s.nmec='89150'>
+	<Record t.name='Rosette CLARK' s.name='Rosalinda HARRIS' s.nmec='89151'>
+	<Record t.name='Rosette CLARK' s.name='Rorie TAYLOR' s.nmec='89152'>
+	<Record t.name='Rosette CLARK' s.name='Roselin THOMAS' s.nmec='89153'>
+	<Record t.name='Rosette CLARK' s.name='Ronnica ANDERSON' s.nmec='89154'>
+	<Record t.name='Rosette CLARK' s.name='Rosalinde SMITH' s.nmec='89155'>
+	<Record t.name='Rosette CLARK' s.name='Rosamond ALLEN' s.nmec='89156'>
+	<Record t.name='Rosette CLARK' s.name='Rosabella ALLEN' s.nmec='89157'>
+	<Record t.name='Roselle HARRIS' s.name='Rosella YOUNG' s.nmec='89158'>
+	<Record t.name='Roselle HARRIS' s.name='Rosabel TAYLOR' s.nmec='89159'>
+	<Record t.name='Roselle HARRIS' s.name='Rosette CLARK' s.nmec='89160'>
+	<Record t.name='Roselle HARRIS' s.name='Rosette THOMPSON' s.nmec='89161'>
+	<Record t.name='Roselle HARRIS' s.name='Rosaleen CLARK' s.nmec='89162'>
+	<Record t.name='Roselle HARRIS' s.name='Rosie MARTIN' s.nmec='89163'>
+	<Record t.name='Roselle HARRIS' s.name='Rose YOUNG' s.nmec='89164'>
+	<Record t.name='Roselle HARRIS' s.name='Rosamond JACKSON' s.nmec='89165'>
+	<Record t.name='Roselle HARRIS' s.name='Rochelle GARCIA' s.nmec='89166'>
+	<Record t.name='Roselle HARRIS' s.name='Rosmunda ANDERSON' s.nmec='89167'>
+	<Record t.name='Roselle HARRIS' s.name='Rosaline HARRIS' s.nmec='89168'>
+	<Record t.name='Roselle HARRIS' s.name='Rosemarie BROWN' s.nmec='89169'>
+	<Record t.name='Roselle HARRIS' s.name='Roda SMITH' s.nmec='89170'>
+	<Record t.name='Roselle HARRIS' s.name='Rosie LEE' s.nmec='89171'>
+	<Record t.name='Roselle HARRIS' s.name='Rosabelle ALLEN' s.nmec='89172'>
+	<Record t.name='Roselle HARRIS' s.name='Roobbie WHITE' s.nmec='89173'>
+	<Record t.name='Roselle HARRIS' s.name='Ronica YOUNG' s.nmec='89174'>
+	<Record t.name='Roselle HARRIS' s.name='Rosalinda JOHNSON' s.nmec='89175'>
+	<Record t.name='Roselle HARRIS' s.name='Rosella DAVIS' s.nmec='89176'>
+	<Record t.name='Roselle HARRIS' s.name='Rosie MARTINEZ' s.nmec='89177'>
+	<Record t.name='Roselle HARRIS' s.name='Roseanna JACKSON' s.nmec='89178'>
+	<Record t.name='Roselle HARRIS' s.name='Ros WALKER' s.nmec='89179'>
+	<Record t.name='Roselle HARRIS' s.name='Rosabel JONES' s.nmec='89180'>
+	<Record t.name='Roselle HARRIS' s.name='Ronalda ROBINSON' s.nmec='89181'>
+	<Record t.name='Roselle HARRIS' s.name='Romy ANDERSON' s.nmec='89182'>
+	<Record t.name='Roselle HARRIS' s.name='Rosalyn SMITH' s.nmec='89183'>
+	<Record t.name='Roselle HARRIS' s.name='Rosina JACKSON' s.nmec='89184'>
+	<Record t.name='Roselle HARRIS' s.name='Rosanna WALKER' s.nmec='89185'>
+	<Record t.name='Roselle HARRIS' s.name='Ronica DAVIS' s.nmec='89186'>
+	<Record t.name='Roselle HARRIS' s.name='Rosalind JOHNSON' s.nmec='89187'>
+	<Record t.name='Ronnica LEWIS' s.name='Ronni MARTIN' s.nmec='89188'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosemary HALL' s.nmec='89189'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosamund WALKER' s.nmec='89190'>
+	<Record t.name='Ronnica LEWIS' s.name='Rochell ROBINSON' s.nmec='89191'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosalinde JONES' s.nmec='89192'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosene WHITE' s.nmec='89193'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosana YOUNG' s.nmec='89194'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosalinda MILLER' s.nmec='89195'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosalinda BROWN' s.nmec='89196'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosalie MARTINEZ' s.nmec='89197'>
+	<Record t.name='Ronnica LEWIS' s.name='Roselle MILLER' s.nmec='89198'>
+	<Record t.name='Ronnica LEWIS' s.name='Romy HALL' s.nmec='89199'>
+	<Record t.name='Ronnica LEWIS' s.name='Roda RODRIGUEZ' s.nmec='89200'>
+	<Record t.name='Ronnica LEWIS' s.name='Rodina WALKER' s.nmec='89201'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosana MARTINEZ' s.nmec='89202'>
+	<Record t.name='Ronnica LEWIS' s.name='Romola THOMPSON' s.nmec='89203'>
+	<Record t.name='Ronnica LEWIS' s.name='Rose JACKSON' s.nmec='89204'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosalyn MARTINEZ' s.nmec='89205'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosamund THOMAS' s.nmec='89206'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosemonde MARTINEZ' s.nmec='89207'>
+	<Record t.name='Ronnica LEWIS' s.name='Romy JOHNSON' s.nmec='89208'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosemarie ANDERSON' s.nmec='89209'>
+	<Record t.name='Ronnica LEWIS' s.name='Rodie JACKSON' s.nmec='89210'>
+	<Record t.name='Ronnica LEWIS' s.name='Rois TAYLOR' s.nmec='89211'>
+	<Record t.name='Ronnica LEWIS' s.name='Roslyn LEWIS' s.nmec='89212'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosabella ROBINSON' s.nmec='89213'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosalie THOMPSON' s.nmec='89214'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosaline DAVIS' s.nmec='89215'>
+	<Record t.name='Ronnica LEWIS' s.name='Rosalie ROBINSON' s.nmec='89216'>
+	<Record t.name='Ronnica LEWIS' s.name='Romonda THOMPSON' s.nmec='89217'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosalynd MOORE' s.nmec='89218'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Romola MARTINEZ' s.nmec='89219'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roseann MOORE' s.nmec='89220'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rory DAVIS' s.nmec='89221'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosita MOORE' s.nmec='89222'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rochette WHITE' s.nmec='89223'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rori LEE' s.nmec='89224'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosita WILSON' s.nmec='89225'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosetta MOORE' s.nmec='89226'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roda HALL' s.nmec='89227'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosalind BROWN' s.nmec='89228'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rona WILLIAMS' s.nmec='89229'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosette HARRIS' s.nmec='89230'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosalind YOUNG' s.nmec='89231'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosalie LEE' s.nmec='89232'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosette JACKSON' s.nmec='89233'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ronny JOHNSON' s.nmec='89234'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roseline DAVIS' s.nmec='89235'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosamund MOORE' s.nmec='89236'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosamond WILSON' s.nmec='89237'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ros THOMPSON' s.nmec='89238'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosaline ROBINSON' s.nmec='89239'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roseann THOMAS' s.nmec='89240'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ronni DAVIS' s.nmec='89241'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosemary LEE' s.nmec='89242'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roobbie ALLEN' s.nmec='89243'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Romy MARTIN' s.nmec='89244'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ronna MARTIN' s.nmec='89245'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Romola WILSON' s.nmec='89246'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosalinda WILLIAMS' s.nmec='89247'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosmunda THOMAS' s.nmec='89248'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Romy MARTIN' s.nmec='89249'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rodina THOMAS' s.nmec='89250'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rori GARCIA' s.nmec='89251'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosette WILSON' s.nmec='89252'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ronda WILSON' s.nmec='89253'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosaleen GARCIA' s.nmec='89254'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosemonde JACKSON' s.nmec='89255'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roselle WHITE' s.nmec='89256'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ronalda GARCIA' s.nmec='89257'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rorie JACKSON' s.nmec='89258'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosaleen JACKSON' s.nmec='89259'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roselia JOHNSON' s.nmec='89260'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rochelle JONES' s.nmec='89261'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roseann WILSON' s.nmec='89262'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ronnica MARTINEZ' s.nmec='89263'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosabel ROBINSON' s.nmec='89264'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rorie GARCIA' s.nmec='89265'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosamond MOORE' s.nmec='89266'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roda TAYLOR' s.nmec='89267'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ronni WILSON' s.nmec='89268'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roch RODRIGUEZ' s.nmec='89269'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosemarie THOMAS' s.nmec='89270'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ronnica THOMPSON' s.nmec='89271'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosemary JONES' s.nmec='89272'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosalie MARTIN' s.nmec='89273'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rodi ALLEN' s.nmec='89274'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roseline MARTINEZ' s.nmec='89275'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rochell MARTINEZ' s.nmec='89276'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rona HALL' s.nmec='89277'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roseanne CLARK' s.nmec='89278'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosalinde WHITE' s.nmec='89279'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rori WALKER' s.nmec='89280'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rora WALKER' s.nmec='89281'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roselle HALL' s.nmec='89282'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roda THOMAS' s.nmec='89283'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Romona TAYLOR' s.nmec='89284'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rose YOUNG' s.nmec='89285'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosina JONES' s.nmec='89286'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rodie MILLER' s.nmec='89287'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Romonda WILSON' s.nmec='89288'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosabelle HARRIS' s.nmec='89289'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rochelle DAVIS' s.nmec='89290'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosamond WHITE' s.nmec='89291'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosalind HALL' s.nmec='89292'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosabella BROWN' s.nmec='89293'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rona JACKSON' s.nmec='89294'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosalynd WHITE' s.nmec='89295'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosamund JONES' s.nmec='89296'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosamund ALLEN' s.nmec='89297'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rochella YOUNG' s.nmec='89298'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosabelle ANDERSON' s.nmec='89299'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rodie MOORE' s.nmec='89300'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rori HARRIS' s.nmec='89301'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rochella JONES' s.nmec='89302'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Roobbie DAVIS' s.nmec='89303'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rose THOMAS' s.nmec='89304'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosabella ROBINSON' s.nmec='89305'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Ronica YOUNG' s.nmec='89306'>
+	<Record t.name='Rosabelle THOMPSON' s.name='Rosanne WALKER' s.nmec='89307'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosemaria ALLEN' s.nmec='89308'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosamund BROWN' s.nmec='89309'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Romona ANDERSON' s.nmec='89310'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Ronny WILSON' s.nmec='89311'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosemonde ROBINSON' s.nmec='89312'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosemary HALL' s.nmec='89313'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosette ALLEN' s.nmec='89314'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Roshelle LEWIS' s.nmec='89315'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Romy MARTIN' s.nmec='89316'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Ros MARTIN' s.nmec='89317'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Romy WILLIAMS' s.nmec='89318'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Roselin HARRIS' s.nmec='89319'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Roda SMITH' s.nmec='89320'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Roselia WILLIAMS' s.nmec='89321'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosalind MARTINEZ' s.nmec='89322'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosalinda YOUNG' s.nmec='89323'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosette JONES' s.nmec='89324'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rory ANDERSON' s.nmec='89325'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosabelle THOMPSON' s.nmec='89326'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosene ALLEN' s.nmec='89327'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosetta JACKSON' s.nmec='89328'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosette YOUNG' s.nmec='89329'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosalinde SMITH' s.nmec='89330'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rochelle GARCIA' s.nmec='89331'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rochell HARRIS' s.nmec='89332'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rodie RODRIGUEZ' s.nmec='89333'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rodie WALKER' s.nmec='89334'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosalind JOHNSON' s.nmec='89335'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Ronica ANDERSON' s.nmec='89336'>
+	<Record t.name='Rosamond MARTINEZ' s.name='Rosene CLARK' s.nmec='89337'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roslyn MILLER' s.nmec='89338'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosemonde HALL' s.nmec='89339'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roselle SMITH' s.nmec='89340'>
+	<Record t.name='Rochelle ANDERSON' s.name='Romonda YOUNG' s.nmec='89341'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roseanne JOHNSON' s.nmec='89342'>
+	<Record t.name='Rochelle ANDERSON' s.name='Ros MOORE' s.nmec='89343'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roseanne WILSON' s.nmec='89344'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rois RODRIGUEZ' s.nmec='89345'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rois WALKER' s.nmec='89346'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rona ALLEN' s.nmec='89347'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roselin MILLER' s.nmec='89348'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosalynd DAVIS' s.nmec='89349'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roselia LEWIS' s.nmec='89350'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosemarie JOHNSON' s.nmec='89351'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rory HALL' s.nmec='89352'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rodina MARTINEZ' s.nmec='89353'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosabella DAVIS' s.nmec='89354'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosella WALKER' s.nmec='89355'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosemonde MARTIN' s.nmec='89356'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roselia MILLER' s.nmec='89357'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosemary JOHNSON' s.nmec='89358'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosabel WHITE' s.nmec='89359'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosamund HALL' s.nmec='89360'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosalyn LEE' s.nmec='89361'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosene CLARK' s.nmec='89362'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roobbie THOMAS' s.nmec='89363'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rochell THOMAS' s.nmec='89364'>
+	<Record t.name='Rochelle ANDERSON' s.name='Ronda WALKER' s.nmec='89365'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosie WILSON' s.nmec='89366'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosie WALKER' s.nmec='89367'>
+	<Record t.name='Rochelle ANDERSON' s.name='Ronna LEE' s.nmec='89368'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosalinda ANDERSON' s.nmec='89369'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roseanna JACKSON' s.nmec='89370'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roseann JONES' s.nmec='89371'>
+	<Record t.name='Rochelle ANDERSON' s.name='Ros HALL' s.nmec='89372'>
+	<Record t.name='Rochelle ANDERSON' s.name='Romy GARCIA' s.nmec='89373'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roseanna MOORE' s.nmec='89374'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roseline THOMPSON' s.nmec='89375'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roseline LEWIS' s.nmec='89376'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rori LEWIS' s.nmec='89377'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosina DAVIS' s.nmec='89378'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosabelle LEWIS' s.nmec='89379'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosalinde WALKER' s.nmec='89380'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosalyn LEE' s.nmec='89381'>
+	<Record t.name='Rochelle ANDERSON' s.name='Ronnie THOMAS' s.nmec='89382'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rora WALKER' s.nmec='89383'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roobbie WILSON' s.nmec='89384'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rochette JONES' s.nmec='89385'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roseann HALL' s.nmec='89386'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rory MILLER' s.nmec='89387'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosene LEWIS' s.nmec='89388'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosalie WHITE' s.nmec='89389'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rona BROWN' s.nmec='89390'>
+	<Record t.name='Rochelle ANDERSON' s.name='Roslyn WILLIAMS' s.nmec='89391'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosa WALKER' s.nmec='89392'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosalynd DAVIS' s.nmec='89393'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rosaline BROWN' s.nmec='89394'>
+	<Record t.name='Rochelle ANDERSON' s.name='Romy JACKSON' s.nmec='89395'>
+	<Record t.name='Rochelle ANDERSON' s.name='Romonda ROBINSON' s.nmec='89396'>
+	<Record t.name='Rochelle ANDERSON' s.name='Rory GARCIA' s.nmec='89397'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rodie WHITE' s.nmec='89398'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Ronnie HARRIS' s.nmec='89399'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosanna JACKSON' s.nmec='89400'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosa THOMPSON' s.nmec='89401'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosella MOORE' s.nmec='89402'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosemaria JONES' s.nmec='89403'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rory GARCIA' s.nmec='89404'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosanne GARCIA' s.nmec='89405'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rora WHITE' s.nmec='89406'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Romola HARRIS' s.nmec='89407'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Ronnica YOUNG' s.nmec='89408'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosemaria YOUNG' s.nmec='89409'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rochella CLARK' s.nmec='89410'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosalie HARRIS' s.nmec='89411'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosina ROBINSON' s.nmec='89412'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosalie WILSON' s.nmec='89413'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rora JONES' s.nmec='89414'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rochelle WILSON' s.nmec='89415'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosana DAVIS' s.nmec='89416'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosemaria WILSON' s.nmec='89417'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosita RODRIGUEZ' s.nmec='89418'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Ronnie RODRIGUEZ' s.nmec='89419'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosella BROWN' s.nmec='89420'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rois MILLER' s.nmec='89421'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Roseline TAYLOR' s.nmec='89422'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosalia THOMAS' s.nmec='89423'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Rosette GARCIA' s.nmec='89424'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Roseline MARTIN' s.nmec='89425'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Roselin MARTINEZ' s.nmec='89426'>
+	<Record t.name='Rosalyn JOHNSON' s.name='Roselia DAVIS' s.nmec='89427'>
+	<Record t.name='Roda THOMAS' s.name='Rora HALL' s.nmec='89428'>
+	<Record t.name='Roda THOMAS' s.name='Rochella ANDERSON' s.nmec='89429'>
+	<Record t.name='Roda THOMAS' s.name='Ros LEE' s.nmec='89430'>
+	<Record t.name='Roda THOMAS' s.name='Rosanna THOMAS' s.nmec='89431'>
+	<Record t.name='Roda THOMAS' s.name='Roseann ROBINSON' s.nmec='89432'>
+	<Record t.name='Roda THOMAS' s.name='Rose BROWN' s.nmec='89433'>
+	<Record t.name='Roda THOMAS' s.name='Roch JOHNSON' s.nmec='89434'>
+	<Record t.name='Roda THOMAS' s.name='Rosamond MARTINEZ' s.nmec='89435'>
+	<Record t.name='Roda THOMAS' s.name='Rosamond TAYLOR' s.nmec='89436'>
+	<Record t.name='Roda THOMAS' s.name='Roslyn LEE' s.nmec='89437'>
+	<Record t.name='Roda THOMAS' s.name='Roselia LEE' s.nmec='89438'>
+	<Record t.name='Roda THOMAS' s.name='Rosamund THOMAS' s.nmec='89439'>
+	<Record t.name='Roda THOMAS' s.name='Roselia THOMPSON' s.nmec='89440'>
+	<Record t.name='Roda THOMAS' s.name='Rodie LEWIS' s.nmec='89441'>
+	<Record t.name='Roda THOMAS' s.name='Rois DAVIS' s.nmec='89442'>
+	<Record t.name='Roda THOMAS' s.name='Rosie ALLEN' s.nmec='89443'>
+	<Record t.name='Roda THOMAS' s.name='Roseann THOMPSON' s.nmec='89444'>
+	<Record t.name='Roda THOMAS' s.name='Rosalia RODRIGUEZ' s.nmec='89445'>
+	<Record t.name='Roda THOMAS' s.name='Rori THOMPSON' s.nmec='89446'>
+	<Record t.name='Roda THOMAS' s.name='Rochella ROBINSON' s.nmec='89447'>
+	<Record t.name='Roda THOMAS' s.name='Rosalinde RODRIGUEZ' s.nmec='89448'>
+	<Record t.name='Roda THOMAS' s.name='Roseanna ANDERSON' s.nmec='89449'>
+	<Record t.name='Roda THOMAS' s.name='Rora THOMAS' s.nmec='89450'>
+	<Record t.name='Roda THOMAS' s.name='Rochette TAYLOR' s.nmec='89451'>
+	<Record t.name='Roda THOMAS' s.name='Rochette BROWN' s.nmec='89452'>
+	<Record t.name='Roda THOMAS' s.name='Rosaline WILSON' s.nmec='89453'>
+	<Record t.name='Roda THOMAS' s.name='Rosaline GARCIA' s.nmec='89454'>
+	<Record t.name='Roda THOMAS' s.name='Rochella MARTINEZ' s.nmec='89455'>
+	<Record t.name='Roda THOMAS' s.name='Rosalyn WHITE' s.nmec='89456'>
+	<Record t.name='Roda THOMAS' s.name='Roseanna ANDERSON' s.nmec='89457'>
+	<Record t.name='Rosie YOUNG' s.name='Rosemarie LEE' s.nmec='89458'>
+	<Record t.name='Rosie YOUNG' s.name='Roseann YOUNG' s.nmec='89459'>
+	<Record t.name='Rosie YOUNG' s.name='Rosanne JONES' s.nmec='89460'>
+	<Record t.name='Rosie YOUNG' s.name='Roselia THOMAS' s.nmec='89461'>
+	<Record t.name='Rosie YOUNG' s.name='Rochelle JONES' s.nmec='89462'>
+	<Record t.name='Rosie YOUNG' s.name='Ronalda THOMPSON' s.nmec='89463'>
+	<Record t.name='Rosie YOUNG' s.name='Roselle MARTINEZ' s.nmec='89464'>
+	<Record t.name='Rosie YOUNG' s.name='Rosalie THOMAS' s.nmec='89465'>
+	<Record t.name='Rosie YOUNG' s.name='Rochella DAVIS' s.nmec='89466'>
+	<Record t.name='Rosie YOUNG' s.name='Rorie RODRIGUEZ' s.nmec='89467'>
+	<Record t.name='Rosie YOUNG' s.name='Romona ROBINSON' s.nmec='89468'>
+	<Record t.name='Rosie YOUNG' s.name='Romonda THOMPSON' s.nmec='89469'>
+	<Record t.name='Rosie YOUNG' s.name='Roch THOMAS' s.nmec='89470'>
+	<Record t.name='Rosie YOUNG' s.name='Rosella ANDERSON' s.nmec='89471'>
+	<Record t.name='Rosie YOUNG' s.name='Rodi TAYLOR' s.nmec='89472'>
+	<Record t.name='Rosie YOUNG' s.name='Rosemonde THOMAS' s.nmec='89473'>
+	<Record t.name='Rosie YOUNG' s.name='Romola JONES' s.nmec='89474'>
+	<Record t.name='Rosie YOUNG' s.name='Rosaleen WALKER' s.nmec='89475'>
+	<Record t.name='Rosie YOUNG' s.name='Rory HARRIS' s.nmec='89476'>
+	<Record t.name='Rosie YOUNG' s.name='Rois HARRIS' s.nmec='89477'>
+	<Record t.name='Rosie YOUNG' s.name='Roseanna JONES' s.nmec='89478'>
+	<Record t.name='Rosie YOUNG' s.name='Roseanne MARTIN' s.nmec='89479'>
+	<Record t.name='Rosie YOUNG' s.name='Roselle JONES' s.nmec='89480'>
+	<Record t.name='Rosie YOUNG' s.name='Rosene GARCIA' s.nmec='89481'>
+	<Record t.name='Rosie YOUNG' s.name='Rochella HALL' s.nmec='89482'>
+	<Record t.name='Rosie YOUNG' s.name='Rosemarie TAYLOR' s.nmec='89483'>
+	<Record t.name='Rosie YOUNG' s.name='Rosalie ROBINSON' s.nmec='89484'>
+	<Record t.name='Rosie YOUNG' s.name='Ronica LEWIS' s.nmec='89485'>
+	<Record t.name='Rosie YOUNG' s.name='Rosmunda MARTIN' s.nmec='89486'>
+	<Record t.name='Rosie YOUNG' s.name='Ros HALL' s.nmec='89487'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Ros TAYLOR' s.nmec='89488'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Roseline DAVIS' s.nmec='89489'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosella RODRIGUEZ' s.nmec='89490'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rois MILLER' s.nmec='89491'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Romona HARRIS' s.nmec='89492'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rochella WILSON' s.nmec='89493'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosalinde CLARK' s.nmec='89494'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosella JONES' s.nmec='89495'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rodi WHITE' s.nmec='89496'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosamond MOORE' s.nmec='89497'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rory SMITH' s.nmec='89498'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosmunda WHITE' s.nmec='89499'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rodina HALL' s.nmec='89500'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosmunda ROBINSON' s.nmec='89501'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rose DAVIS' s.nmec='89502'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Ros LEWIS' s.nmec='89503'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Ronny WILLIAMS' s.nmec='89504'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rorie THOMPSON' s.nmec='89505'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosie DAVIS' s.nmec='89506'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rona ALLEN' s.nmec='89507'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Ronni ROBINSON' s.nmec='89508'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rora ROBINSON' s.nmec='89509'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosene LEWIS' s.nmec='89510'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosina MILLER' s.nmec='89511'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosette TAYLOR' s.nmec='89512'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosmunda WHITE' s.nmec='89513'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Roselin CLARK' s.nmec='89514'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rochella WHITE' s.nmec='89515'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Roseanna LEWIS' s.nmec='89516'>
+	<Record t.name='Rosmunda MARTINEZ' s.name='Rosalind THOMAS' s.nmec='89517'>
+	<Record t.name='Rosella THOMPSON' s.name='Rose JACKSON' s.nmec='89518'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosamund HALL' s.nmec='89519'>
+	<Record t.name='Rosella THOMPSON' s.name='Rodi LEE' s.nmec='89520'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosaleen MILLER' s.nmec='89521'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosabelle GARCIA' s.nmec='89522'>
+	<Record t.name='Rosella THOMPSON' s.name='Roseanna MARTIN' s.nmec='89523'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosamund TAYLOR' s.nmec='89524'>
+	<Record t.name='Rosella THOMPSON' s.name='Romonda WILSON' s.nmec='89525'>
+	<Record t.name='Rosella THOMPSON' s.name='Rochelle RODRIGUEZ' s.nmec='89526'>
+	<Record t.name='Rosella THOMPSON' s.name='Roselle WILSON' s.nmec='89527'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosalia WHITE' s.nmec='89528'>
+	<Record t.name='Rosella THOMPSON' s.name='Rorie THOMPSON' s.nmec='89529'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosalinda THOMPSON' s.nmec='89530'>
+	<Record t.name='Rosella THOMPSON' s.name='Romola THOMAS' s.nmec='89531'>
+	<Record t.name='Rosella THOMPSON' s.name='Roch ALLEN' s.nmec='89532'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosalyn MARTIN' s.nmec='89533'>
+	<Record t.name='Rosella THOMPSON' s.name='Rochella DAVIS' s.nmec='89534'>
+	<Record t.name='Rosella THOMPSON' s.name='Rochella GARCIA' s.nmec='89535'>
+	<Record t.name='Rosella THOMPSON' s.name='Roselle RODRIGUEZ' s.nmec='89536'>
+	<Record t.name='Rosella THOMPSON' s.name='Ronalda WILLIAMS' s.nmec='89537'>
+	<Record t.name='Rosella THOMPSON' s.name='Ronna THOMPSON' s.nmec='89538'>
+	<Record t.name='Rosella THOMPSON' s.name='Rory MILLER' s.nmec='89539'>
+	<Record t.name='Rosella THOMPSON' s.name='Ronnica MOORE' s.nmec='89540'>
+	<Record t.name='Rosella THOMPSON' s.name='Roch THOMPSON' s.nmec='89541'>
+	<Record t.name='Rosella THOMPSON' s.name='Roslyn TAYLOR' s.nmec='89542'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosalinda THOMAS' s.nmec='89543'>
+	<Record t.name='Rosella THOMPSON' s.name='Roseann ANDERSON' s.nmec='89544'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosamund WILSON' s.nmec='89545'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosamund THOMAS' s.nmec='89546'>
+	<Record t.name='Rosella THOMPSON' s.name='Rosette HALL' s.nmec='89547'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosene JOHNSON' s.nmec='89548'>
+	<Record t.name='Roseanne ANDERSON' s.name='Ronny WALKER' s.nmec='89549'>
+	<Record t.name='Roseanne ANDERSON' s.name='Roobbie ANDERSON' s.nmec='89550'>
+	<Record t.name='Roseanne ANDERSON' s.name='Roseanne GARCIA' s.nmec='89551'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosanna DAVIS' s.nmec='89552'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosalinda ANDERSON' s.nmec='89553'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosalyn MILLER' s.nmec='89554'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosaline WHITE' s.nmec='89555'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosanna BROWN' s.nmec='89556'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rona HALL' s.nmec='89557'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rose GARCIA' s.nmec='89558'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rochella HARRIS' s.nmec='89559'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rory MOORE' s.nmec='89560'>
+	<Record t.name='Roseanne ANDERSON' s.name='Roseanna WALKER' s.nmec='89561'>
+	<Record t.name='Roseanne ANDERSON' s.name='Roseanna TAYLOR' s.nmec='89562'>
+	<Record t.name='Roseanne ANDERSON' s.name='Romonda ALLEN' s.nmec='89563'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosalie MARTIN' s.nmec='89564'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosemonde LEE' s.nmec='89565'>
+	<Record t.name='Roseanne ANDERSON' s.name='Roseanne ROBINSON' s.nmec='89566'>
+	<Record t.name='Roseanne ANDERSON' s.name='Romy LEWIS' s.nmec='89567'>
+	<Record t.name='Roseanne ANDERSON' s.name='Romy MARTINEZ' s.nmec='89568'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosita WILLIAMS' s.nmec='89569'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosalind WILSON' s.nmec='89570'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosita MARTINEZ' s.nmec='89571'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosina WILSON' s.nmec='89572'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosabella DAVIS' s.nmec='89573'>
+	<Record t.name='Roseanne ANDERSON' s.name='Roseline WALKER' s.nmec='89574'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosalinde ALLEN' s.nmec='89575'>
+	<Record t.name='Roseanne ANDERSON' s.name='Rosalyn HALL' s.nmec='89576'>
+	<Record t.name='Roseanne ANDERSON' s.name='Ronda DAVIS' s.nmec='89577'>
+	<Record t.name='Rodina LEWIS' s.name='Rosene ALLEN' s.nmec='89578'>
+	<Record t.name='Rodina LEWIS' s.name='Rosella TAYLOR' s.nmec='89579'>
+	<Record t.name='Rodina LEWIS' s.name='Rosmunda ANDERSON' s.nmec='89580'>
+	<Record t.name='Rodina LEWIS' s.name='Rosaline MILLER' s.nmec='89581'>
+	<Record t.name='Rodina LEWIS' s.name='Ronda MILLER' s.nmec='89582'>
+	<Record t.name='Rodina LEWIS' s.name='Roselin RODRIGUEZ' s.nmec='89583'>
+	<Record t.name='Rodina LEWIS' s.name='Rori MARTIN' s.nmec='89584'>
+	<Record t.name='Rodina LEWIS' s.name='Rosabelle WALKER' s.nmec='89585'>
+	<Record t.name='Rodina LEWIS' s.name='Ronna LEWIS' s.nmec='89586'>
+	<Record t.name='Rodina LEWIS' s.name='Rodie CLARK' s.nmec='89587'>
+	<Record t.name='Rodina LEWIS' s.name='Rodina CLARK' s.nmec='89588'>
+	<Record t.name='Rodina LEWIS' s.name='Ros BROWN' s.nmec='89589'>
+	<Record t.name='Rodina LEWIS' s.name='Rona JONES' s.nmec='89590'>
+	<Record t.name='Rodina LEWIS' s.name='Rosaleen MILLER' s.nmec='89591'>
+	<Record t.name='Rodina LEWIS' s.name='Rosaline RODRIGUEZ' s.nmec='89592'>
+	<Record t.name='Rodina LEWIS' s.name='Rodi JOHNSON' s.nmec='89593'>
+	<Record t.name='Rodina LEWIS' s.name='Rosetta CLARK' s.nmec='89594'>
+	<Record t.name='Rodina LEWIS' s.name='Romola RODRIGUEZ' s.nmec='89595'>
+	<Record t.name='Rodina LEWIS' s.name='Rosalind MOORE' s.nmec='89596'>
+	<Record t.name='Rodina LEWIS' s.name='Roseann MOORE' s.nmec='89597'>
+	<Record t.name='Rodina LEWIS' s.name='Rosaline JOHNSON' s.nmec='89598'>
+	<Record t.name='Rodina LEWIS' s.name='Ronica ANDERSON' s.nmec='89599'>
+	<Record t.name='Rodina LEWIS' s.name='Ronalda THOMPSON' s.nmec='89600'>
+	<Record t.name='Rodina LEWIS' s.name='Rosemonde WALKER' s.nmec='89601'>
+	<Record t.name='Rodina LEWIS' s.name='Rosanna MILLER' s.nmec='89602'>
+	<Record t.name='Rodina LEWIS' s.name='Rosalinde ALLEN' s.nmec='89603'>
+	<Record t.name='Rodina LEWIS' s.name='Roselle ANDERSON' s.nmec='89604'>
+	<Record t.name='Rodina LEWIS' s.name='Rosalynd SMITH' s.nmec='89605'>
+	<Record t.name='Rodina LEWIS' s.name='Ros DAVIS' s.nmec='89606'>
+	<Record t.name='Rodina LEWIS' s.name='Romy THOMAS' s.nmec='89607'>
+	<Record t.name='Rosemaria WALKER' s.name='Rona YOUNG' s.nmec='89608'>
+	<Record t.name='Rosemaria WALKER' s.name='Ronny WILLIAMS' s.nmec='89609'>
+	<Record t.name='Rosemaria WALKER' s.name='Ronni CLARK' s.nmec='89610'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosemaria YOUNG' s.nmec='89611'>
+	<Record t.name='Rosemaria WALKER' s.name='Roslyn SMITH' s.nmec='89612'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosalie JONES' s.nmec='89613'>
+	<Record t.name='Rosemaria WALKER' s.name='Ronda WILSON' s.nmec='89614'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosemaria GARCIA' s.nmec='89615'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosana GARCIA' s.nmec='89616'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosaline JOHNSON' s.nmec='89617'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosamund LEE' s.nmec='89618'>
+	<Record t.name='Rosemaria WALKER' s.name='Ronna WILLIAMS' s.nmec='89619'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosabella ANDERSON' s.nmec='89620'>
+	<Record t.name='Rosemaria WALKER' s.name='Rodie JONES' s.nmec='89621'>
+	<Record t.name='Rosemaria WALKER' s.name='Ronalda MARTINEZ' s.nmec='89622'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosina WHITE' s.nmec='89623'>
+	<Record t.name='Rosemaria WALKER' s.name='Rochell ROBINSON' s.nmec='89624'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosanna MARTINEZ' s.nmec='89625'>
+	<Record t.name='Rosemaria WALKER' s.name='Roseline MOORE' s.nmec='89626'>
+	<Record t.name='Rosemaria WALKER' s.name='Roseanna TAYLOR' s.nmec='89627'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosabelle WILLIAMS' s.nmec='89628'>
+	<Record t.name='Rosemaria WALKER' s.name='Rodina WILLIAMS' s.nmec='89629'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosamund DAVIS' s.nmec='89630'>
+	<Record t.name='Rosemaria WALKER' s.name='Rora MILLER' s.nmec='89631'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosabel HALL' s.nmec='89632'>
+	<Record t.name='Rosemaria WALKER' s.name='Romonda LEE' s.nmec='89633'>
+	<Record t.name='Rosemaria WALKER' s.name='Ros RODRIGUEZ' s.nmec='89634'>
+	<Record t.name='Rosemaria WALKER' s.name='Rory MILLER' s.nmec='89635'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosita SMITH' s.nmec='89636'>
+	<Record t.name='Rosemaria WALKER' s.name='Rosanne WILLIAMS' s.nmec='89637'>
+	<Record t.name='Rosanna MILLER' s.name='Rosmunda MARTIN' s.nmec='89638'>
+	<Record t.name='Rosanna MILLER' s.name='Ronalda MARTINEZ' s.nmec='89639'>
+	<Record t.name='Rosanna MILLER' s.name='Rosabelle JONES' s.nmec='89640'>
+	<Record t.name='Rosanna MILLER' s.name='Rosemaria GARCIA' s.nmec='89641'>
+	<Record t.name='Rosanna MILLER' s.name='Rodie ANDERSON' s.nmec='89642'>
+	<Record t.name='Rosanna MILLER' s.name='Rosabelle WILLIAMS' s.nmec='89643'>
+	<Record t.name='Rosanna MILLER' s.name='Rosamund WHITE' s.nmec='89644'>
+	<Record t.name='Rosanna MILLER' s.name='Rori WHITE' s.nmec='89645'>
+	<Record t.name='Rosanna MILLER' s.name='Rose LEWIS' s.nmec='89646'>
+	<Record t.name='Rosanna MILLER' s.name='Rosemary TAYLOR' s.nmec='89647'>
+	<Record t.name='Rosanna MILLER' s.name='Rodi MILLER' s.nmec='89648'>
+	<Record t.name='Rosanna MILLER' s.name='Rosetta WHITE' s.nmec='89649'>
+	<Record t.name='Rosanna MILLER' s.name='Rochell MARTINEZ' s.nmec='89650'>
+	<Record t.name='Rosanna MILLER' s.name='Rona BROWN' s.nmec='89651'>
+	<Record t.name='Rosanna MILLER' s.name='Roshelle WHITE' s.nmec='89652'>
+	<Record t.name='Rosanna MILLER' s.name='Rochelle YOUNG' s.nmec='89653'>
+	<Record t.name='Rosanna MILLER' s.name='Rosabella HALL' s.nmec='89654'>
+	<Record t.name='Rosanna MILLER' s.name='Roseanna THOMAS' s.nmec='89655'>
+	<Record t.name='Rosanna MILLER' s.name='Rosemonde SMITH' s.nmec='89656'>
+	<Record t.name='Rosanna MILLER' s.name='Roda YOUNG' s.nmec='89657'>
+	<Record t.name='Rosanna MILLER' s.name='Rochette HALL' s.nmec='89658'>
+	<Record t.name='Rosanna MILLER' s.name='Rosemary LEE' s.nmec='89659'>
+	<Record t.name='Rosanna MILLER' s.name='Ronny SMITH' s.nmec='89660'>
+	<Record t.name='Rosanna MILLER' s.name='Rochella SMITH' s.nmec='89661'>
+	<Record t.name='Rosanna MILLER' s.name='Rosemaria TAYLOR' s.nmec='89662'>
+	<Record t.name='Rosanna MILLER' s.name='Rory HARRIS' s.nmec='89663'>
+	<Record t.name='Rosanna MILLER' s.name='Roshelle ALLEN' s.nmec='89664'>
+	<Record t.name='Rosanna MILLER' s.name='Roseline WALKER' s.nmec='89665'>
+	<Record t.name='Rosanna MILLER' s.name='Rosetta JACKSON' s.nmec='89666'>
+	<Record t.name='Rosanna MILLER' s.name='Rose ANDERSON' s.nmec='89667'>
+	<Record t.name='Ronny WHITE' s.name='Rosina CLARK' s.nmec='89668'>
+	<Record t.name='Ronny WHITE' s.name='Rosaleen MOORE' s.nmec='89669'>
+	<Record t.name='Ronny WHITE' s.name='Ronni WILLIAMS' s.nmec='89670'>
+	<Record t.name='Ronny WHITE' s.name='Rosamund ROBINSON' s.nmec='89671'>
+	<Record t.name='Ronny WHITE' s.name='Roseann ALLEN' s.nmec='89672'>
+	<Record t.name='Ronny WHITE' s.name='Ronalda WILLIAMS' s.nmec='89673'>
+	<Record t.name='Ronny WHITE' s.name='Rosabel JOHNSON' s.nmec='89674'>
+	<Record t.name='Ronny WHITE' s.name='Rosalinde ALLEN' s.nmec='89675'>
+	<Record t.name='Ronny WHITE' s.name='Rori HALL' s.nmec='89676'>
+	<Record t.name='Ronny WHITE' s.name='Rosalie TAYLOR' s.nmec='89677'>
+	<Record t.name='Ronny WHITE' s.name='Roseanne ANDERSON' s.nmec='89678'>
+	<Record t.name='Ronny WHITE' s.name='Rosabel GARCIA' s.nmec='89679'>
+	<Record t.name='Ronny WHITE' s.name='Rochette JACKSON' s.nmec='89680'>
+	<Record t.name='Ronny WHITE' s.name='Roch WILSON' s.nmec='89681'>
+	<Record t.name='Ronny WHITE' s.name='Rosmunda ALLEN' s.nmec='89682'>
+	<Record t.name='Ronny WHITE' s.name='Rona BROWN' s.nmec='89683'>
+	<Record t.name='Ronny WHITE' s.name='Rosalinda HALL' s.nmec='89684'>
+	<Record t.name='Ronny WHITE' s.name='Roshelle TAYLOR' s.nmec='89685'>
+	<Record t.name='Ronny WHITE' s.name='Rosalinde HARRIS' s.nmec='89686'>
+	<Record t.name='Ronny WHITE' s.name='Ronda JONES' s.nmec='89687'>
+	<Record t.name='Ronny WHITE' s.name='Rosene MOORE' s.nmec='89688'>
+	<Record t.name='Ronny WHITE' s.name='Rosalie GARCIA' s.nmec='89689'>
+	<Record t.name='Ronny WHITE' s.name='Ros THOMAS' s.nmec='89690'>
+	<Record t.name='Ronny WHITE' s.name='Ros ALLEN' s.nmec='89691'>
+	<Record t.name='Ronny WHITE' s.name='Roobbie DAVIS' s.nmec='89692'>
+	<Record t.name='Ronny WHITE' s.name='Rosa LEWIS' s.nmec='89693'>
+	<Record t.name='Ronny WHITE' s.name='Rosette THOMPSON' s.nmec='89694'>
+	<Record t.name='Ronny WHITE' s.name='Romola HARRIS' s.nmec='89695'>
+	<Record t.name='Ronny WHITE' s.name='Ronica SMITH' s.nmec='89696'>
+	<Record t.name='Ronny WHITE' s.name='Rosmunda RODRIGUEZ' s.nmec='89697'>
+	<Record t.name='Rosina WHITE' s.name='Rosemary ANDERSON' s.nmec='89698'>
+	<Record t.name='Rosina WHITE' s.name='Rosanne LEWIS' s.nmec='89699'>
+	<Record t.name='Rosina WHITE' s.name='Rosabelle HALL' s.nmec='89700'>
+	<Record t.name='Rosina WHITE' s.name='Rory HALL' s.nmec='89701'>
+	<Record t.name='Rosina WHITE' s.name='Roda WHITE' s.nmec='89702'>
+	<Record t.name='Rosina WHITE' s.name='Roselia JACKSON' s.nmec='89703'>
+	<Record t.name='Rosina WHITE' s.name='Roselle WILLIAMS' s.nmec='89704'>
+	<Record t.name='Rosina WHITE' s.name='Rosanna WILSON' s.nmec='89705'>
+	<Record t.name='Rosina WHITE' s.name='Rosalinde DAVIS' s.nmec='89706'>
+	<Record t.name='Rosina WHITE' s.name='Rosalinda TAYLOR' s.nmec='89707'>
+	<Record t.name='Rosina WHITE' s.name='Rosaline ANDERSON' s.nmec='89708'>
+	<Record t.name='Rosina WHITE' s.name='Rosamond MILLER' s.nmec='89709'>
+	<Record t.name='Rosina WHITE' s.name='Romola ROBINSON' s.nmec='89710'>
+	<Record t.name='Rosina WHITE' s.name='Rosana ALLEN' s.nmec='89711'>
+	<Record t.name='Rosina WHITE' s.name='Romola WILLIAMS' s.nmec='89712'>
+	<Record t.name='Rosina WHITE' s.name='Rosalind LEWIS' s.nmec='89713'>
+	<Record t.name='Rosina WHITE' s.name='Ronnie BROWN' s.nmec='89714'>
+	<Record t.name='Rosina WHITE' s.name='Rodina RODRIGUEZ' s.nmec='89715'>
+	<Record t.name='Rosina WHITE' s.name='Roseann LEE' s.nmec='89716'>
+	<Record t.name='Rosina WHITE' s.name='Rori THOMAS' s.nmec='89717'>
+	<Record t.name='Rosina WHITE' s.name='Roselia WHITE' s.nmec='89718'>
+	<Record t.name='Rosina WHITE' s.name='Rosanne JOHNSON' s.nmec='89719'>
+	<Record t.name='Rosina WHITE' s.name='Romonda THOMPSON' s.nmec='89720'>
+	<Record t.name='Rosina WHITE' s.name='Rorie HALL' s.nmec='89721'>
+	<Record t.name='Rosina WHITE' s.name='Rosalynd JACKSON' s.nmec='89722'>
+	<Record t.name='Rosina WHITE' s.name='Rodi YOUNG' s.nmec='89723'>
+	<Record t.name='Rosina WHITE' s.name='Rosemary MOORE' s.nmec='89724'>
+	<Record t.name='Rosina WHITE' s.name='Rosalyn MARTINEZ' s.nmec='89725'>
+	<Record t.name='Rosina WHITE' s.name='Rosette YOUNG' s.nmec='89726'>
+	<Record t.name='Rosina WHITE' s.name='Rosabella WILLIAMS' s.nmec='89727'>
+	<Record t.name='Ronna HARRIS' s.name='Rosana ROBINSON' s.nmec='89728'>
+	<Record t.name='Ronna HARRIS' s.name='Rosemonde TAYLOR' s.nmec='89729'>
+	<Record t.name='Ronna HARRIS' s.name='Rosanna CLARK' s.nmec='89730'>
+	<Record t.name='Ronna HARRIS' s.name='Rodie LEE' s.nmec='89731'>
+	<Record t.name='Ronna HARRIS' s.name='Rosamond WILSON' s.nmec='89732'>
+	<Record t.name='Ronna HARRIS' s.name='Roseanne MOORE' s.nmec='89733'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalyn JOHNSON' s.nmec='89734'>
+	<Record t.name='Ronna HARRIS' s.name='Rosabel JOHNSON' s.nmec='89735'>
+	<Record t.name='Ronna HARRIS' s.name='Rosabelle GARCIA' s.nmec='89736'>
+	<Record t.name='Ronna HARRIS' s.name='Romona THOMAS' s.nmec='89737'>
+	<Record t.name='Ronna HARRIS' s.name='Roseline WILSON' s.nmec='89738'>
+	<Record t.name='Ronna HARRIS' s.name='Rois LEWIS' s.nmec='89739'>
+	<Record t.name='Ronna HARRIS' s.name='Roshelle TAYLOR' s.nmec='89740'>
+	<Record t.name='Ronna HARRIS' s.name='Rosita YOUNG' s.nmec='89741'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalie THOMPSON' s.nmec='89742'>
+	<Record t.name='Ronna HARRIS' s.name='Roch MOORE' s.nmec='89743'>
+	<Record t.name='Ronna HARRIS' s.name='Rosemary MOORE' s.nmec='89744'>
+	<Record t.name='Ronna HARRIS' s.name='Rosanna TAYLOR' s.nmec='89745'>
+	<Record t.name='Ronna HARRIS' s.name='Rorie GARCIA' s.nmec='89746'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalind MOORE' s.nmec='89747'>
+	<Record t.name='Ronna HARRIS' s.name='Roshelle TAYLOR' s.nmec='89748'>
+	<Record t.name='Ronna HARRIS' s.name='Rorie DAVIS' s.nmec='89749'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalind WILSON' s.nmec='89750'>
+	<Record t.name='Ronna HARRIS' s.name='Rosemary ROBINSON' s.nmec='89751'>
+	<Record t.name='Ronna HARRIS' s.name='Rosene LEE' s.nmec='89752'>
+	<Record t.name='Ronna HARRIS' s.name='Roobbie ANDERSON' s.nmec='89753'>
+	<Record t.name='Ronna HARRIS' s.name='Rois ALLEN' s.nmec='89754'>
+	<Record t.name='Ronna HARRIS' s.name='Ronda WHITE' s.nmec='89755'>
+	<Record t.name='Ronna HARRIS' s.name='Rosabel THOMPSON' s.nmec='89756'>
+	<Record t.name='Ronna HARRIS' s.name='Rosette HARRIS' s.nmec='89757'>
+	<Record t.name='Ronna HARRIS' s.name='Rosaleen CLARK' s.nmec='89758'>
+	<Record t.name='Ronna HARRIS' s.name='Rory HALL' s.nmec='89759'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalia JACKSON' s.nmec='89760'>
+	<Record t.name='Ronna HARRIS' s.name='Ronalda JACKSON' s.nmec='89761'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalinda ALLEN' s.nmec='89762'>
+	<Record t.name='Ronna HARRIS' s.name='Roseanna WHITE' s.nmec='89763'>
+	<Record t.name='Ronna HARRIS' s.name='Rosina WILSON' s.nmec='89764'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalyn SMITH' s.nmec='89765'>
+	<Record t.name='Ronna HARRIS' s.name='Romola JOHNSON' s.nmec='89766'>
+	<Record t.name='Ronna HARRIS' s.name='Ronda THOMAS' s.nmec='89767'>
+	<Record t.name='Ronna HARRIS' s.name='Rosina SMITH' s.nmec='89768'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalie LEE' s.nmec='89769'>
+	<Record t.name='Ronna HARRIS' s.name='Rosanne ANDERSON' s.nmec='89770'>
+	<Record t.name='Ronna HARRIS' s.name='Roseline HALL' s.nmec='89771'>
+	<Record t.name='Ronna HARRIS' s.name='Roselia WALKER' s.nmec='89772'>
+	<Record t.name='Ronna HARRIS' s.name='Rosanne HALL' s.nmec='89773'>
+	<Record t.name='Ronna HARRIS' s.name='Ronnie CLARK' s.nmec='89774'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalie RODRIGUEZ' s.nmec='89775'>
+	<Record t.name='Ronna HARRIS' s.name='Ronnica HALL' s.nmec='89776'>
+	<Record t.name='Ronna HARRIS' s.name='Rosmunda WHITE' s.nmec='89777'>
+	<Record t.name='Ronna HARRIS' s.name='Romona LEE' s.nmec='89778'>
+	<Record t.name='Ronna HARRIS' s.name='Ronnie JACKSON' s.nmec='89779'>
+	<Record t.name='Ronna HARRIS' s.name='Rochette RODRIGUEZ' s.nmec='89780'>
+	<Record t.name='Ronna HARRIS' s.name='Rodie JACKSON' s.nmec='89781'>
+	<Record t.name='Ronna HARRIS' s.name='Ronica RODRIGUEZ' s.nmec='89782'>
+	<Record t.name='Ronna HARRIS' s.name='Rosalind HARRIS' s.nmec='89783'>
+	<Record t.name='Ronna HARRIS' s.name='Rodi MARTIN' s.nmec='89784'>
+	<Record t.name='Ronna HARRIS' s.name='Romola ROBINSON' s.nmec='89785'>
+	<Record t.name='Ronna HARRIS' s.name='Romy HARRIS' s.nmec='89786'>
+	<Record t.name='Ronna HARRIS' s.name='Rochette SMITH' s.nmec='89787'>
+[9]Running query: MATCH (c:Class) WHERE c.building="B6" AND c.exam_date > "2023-01-15" AND c.exam_date < "2023-02-15" RETURN count(c) as exams_total
+[9]Result:
+	<Record exams_total=2>
+[10]Running query: MATCH (s:Student)-[:ENROLLED_IN]->(c:Class)<-[:LEADS]-(t:Teacher) WHERE c.building="B6" AND c.exam_date > "2023-01-15" AND c.exam_date < "2023-02-15" RETURN c.building AS building, t.name AS teacher_name, s.nmec AS NMEC, s.name AS student_name, c.subject AS subject, c.exam_date AS exam_date ORDER BY c.exam_date ASC
+[10]Result:
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89098' student_name='Rochelle MOORE' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89108' student_name='Rosina HARRIS' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89104' student_name='Roobbie WALKER' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89103' student_name='Rosemonde ALLEN' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89110' student_name='Rochell LEE' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89114' student_name='Rosalinde WALKER' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89113' student_name='Rois MARTINEZ' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89101' student_name='Roselle WHITE' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89117' student_name='Ronnica ROBINSON' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89115' student_name='Ros RODRIGUEZ' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89106' student_name='Rosa ANDERSON' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89111' student_name='Rosaline GARCIA' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89119' student_name='Rosemaria SMITH' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89112' student_name='Rosetta HARRIS' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89125' student_name='Rosalyn WILLIAMS' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89107' student_name='Roshelle THOMPSON' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89118' student_name='Roseanne DAVIS' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89123' student_name='Rois HARRIS' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89116' student_name='Rosene JACKSON' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89105' student_name='Rochell RODRIGUEZ' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89099' student_name='Rosalynd DAVIS' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89120' student_name='Rori ANDERSON' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89102' student_name='Rose GARCIA' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89126' student_name='Rose ANDERSON' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89127' student_name='Ronda JACKSON' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89122' student_name='Rosalinde JOHNSON' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89121' student_name='Rosabelle WILLIAMS' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89109' student_name='Romy CLARK' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89124' student_name='Rosamund MARTINEZ' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn HARRIS' NMEC='89100' student_name='Rodina ALLEN' subject='Integrated Project ManagementPortuguese B1' exam_date='2023-01-22'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88911' student_name='Romona JACKSON' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88900' student_name='Roch WHITE' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88897' student_name='Rosemonde MILLER' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88916' student_name='Rosabella THOMPSON' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88914' student_name='Ronnie TAYLOR' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88888' student_name='Roobbie SMITH' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88913' student_name='Ros WILLIAMS' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88896' student_name='Roseanna MARTINEZ' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88906' student_name='Rosalie LEE' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88899' student_name='Romola DAVIS' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88891' student_name='Ronni ALLEN' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88893' student_name='Rosemary SMITH' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88894' student_name='Roslyn TAYLOR' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88902' student_name='Rosanna JACKSON' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88905' student_name='Romonda MOORE' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88909' student_name='Roselle WILSON' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88890' student_name='Ronda RODRIGUEZ' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88898' student_name='Ronnie WILSON' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88907' student_name='Rora WILSON' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88915' student_name='Rosanne WILSON' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88901' student_name='Roseanne HALL' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88912' student_name='Roseann ALLEN' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88917' student_name='Ronalda WHITE' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88908' student_name='Rosaline ALLEN' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88904' student_name='Rosemary LEE' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88895' student_name='Ronnica TAYLOR' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88910' student_name='Romola MOORE' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88903' student_name='Ronnica GARCIA' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88892' student_name='Roseanne HALL' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>
+	<Record building='B6' teacher_name='Roslyn SMITH' NMEC='88889' student_name='Ronica GARCIA' subject='Analysis and Exploration of Vulnerabilities' exam_date='2023-02-11'>

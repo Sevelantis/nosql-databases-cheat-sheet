@@ -1,0 +1,42 @@
+structure
+
+user:john:
+  - subs:
+    - channel1
+user:mike:
+  - subs:
+    - channel1
+    - channel2
+user:sally:
+  - subs:
+    - channel2
+
+list:channel1:
+  - "msg1"
+  - "msg2"
+list:channel2:
+  - "msg1"
+  - "msg2"
+
+
+Useful commands:
+hmset user:john subs "channel1#channel3"
+lpush list:channel1 "message"
+rpop list:channel1
+lrange list:channel1 0 -1
+
+
+Useful commands:
+// create user:pablo and store information about subscribed chats
+hmset user:pablo subs "chat1:chat2"
+// print all user information
+hgetall user:pablo
+// print all user subs information
+hgetall user:pablo subs
+
+// push a message to the left side of a list
+lpush simple_list:chat1 "message to chat1!"
+// pop (delete) rightmost message from simple_list:chat1
+rpop simple_list:chat1
+// print simple_list:chat1 elements (all chat messages) (-1 means the end of list)
+lrange simple_list:chat1 0 -1

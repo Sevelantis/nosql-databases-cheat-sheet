@@ -1,0 +1,56 @@
+/Users/mir/Library/Java/JavaVirtualMachines/corretto-17.0.3/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=60014:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/mir/IdeaProjects/db-lab/target/classes:/Users/mir/.m2/repository/redis/clients/jedis/4.2.3/jedis-4.2.3.jar:/Users/mir/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/Users/mir/.m2/repository/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar:/Users/mir/.m2/repository/org/json/json/20211205/json-20211205.jar:/Users/mir/.m2/repository/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar Main
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Searching for messages user: jon, in channel: channel1
+welcome in channel1 $$$ 3
+welcome in channel1 $$$ 2
+welcome in channel1 $$$ 1
+Searching for messages user: jon, in channel: channel2
+User jon is not subscribed to channel channel2
+Searching for messages user: mike, in channel: channel1
+welcome in channel1 $$$ 3
+welcome in channel1 $$$ 2
+welcome in channel1 $$$ 1
+Searching for messages user: mike, in channel: channel2
+WILKOMMEN IM CHANNEL ZWEI ^^^ 3
+WILKOMMEN IM CHANNEL ZWEI ^^^ 2
+WILKOMMEN IM CHANNEL ZWEI ^^^ 1
+Searching for messages user: bob, in channel: channel1
+User bob is not subscribed to channel channel1
+Searching for messages user: bob, in channel: channel2
+WILKOMMEN IM CHANNEL ZWEI ^^^ 3
+WILKOMMEN IM CHANNEL ZWEI ^^^ 2
+WILKOMMEN IM CHANNEL ZWEI ^^^ 1
+choose your figher: 1 Jon 2 Mike 3 Bob
+1
+Chosen: jon, your messages: 
+Searching for messages user: jon, in channel: channel1
+welcome in channel1 $$$ 3
+welcome in channel1 $$$ 2
+welcome in channel1 $$$ 1
+Searching for messages user: jon, in channel: channel2
+User jon is not subscribed to channel channel2
+choose your figher: 1 Jon 2 Mike 3 Bob
+2
+Chosen: mike, your messages: 
+Searching for messages user: mike, in channel: channel1
+welcome in channel1 $$$ 3
+welcome in channel1 $$$ 2
+welcome in channel1 $$$ 1
+Searching for messages user: mike, in channel: channel2
+WILKOMMEN IM CHANNEL ZWEI ^^^ 3
+WILKOMMEN IM CHANNEL ZWEI ^^^ 2
+WILKOMMEN IM CHANNEL ZWEI ^^^ 1
+choose your figher: 1 Jon 2 Mike 3 Bob
+3
+Chosen: bob, your messages: 
+Searching for messages user: bob, in channel: channel1
+User bob is not subscribed to channel channel1
+Searching for messages user: bob, in channel: channel2
+WILKOMMEN IM CHANNEL ZWEI ^^^ 3
+WILKOMMEN IM CHANNEL ZWEI ^^^ 2
+WILKOMMEN IM CHANNEL ZWEI ^^^ 1
+choose your figher: 1 Jon 2 Mike 3 Bob
+
+// add more functionalities etc..

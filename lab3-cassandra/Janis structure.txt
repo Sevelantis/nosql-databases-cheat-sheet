@@ -1,0 +1,14 @@
+DROP   KEYSPACE vss;
+CREATE KEYSPACE VSS WITH replication = {'class': 'SimpleStrategy','replication_factor':1}; // Creation of new Keyspace with the name VSS (Video Sharing System)
+CREATE TABLE videos             (author     text, video_name        text, description   text,       tags        text,       upl_time timestamp,     primary KEY(author,video_name));
+CREATE TABLE users              (username   text, name              text, email         text,       reg_time    timestamp,                          primary KEY(username));
+CREATE TABLE event_logger       (username   text, video_name        text, event         text,       eve_time    timestamp,                          primary KEY(username,video_name,eve_time));
+CREATE TABLE comments           (username   text, video_name        text, comment       text,       com_time    timestamp,                          primary KEY(comment,video_name,com_time));
+CREATE TABLE video_ratings      (username   text, video_name        text, rating        int,                                                        primary KEY(video_name,username));
+CREATE TABLE video_followers    (username   text, video_name        text,                                                                           primary KEY(username,video_name));
+
+
+SELECT * FROM videos WHERE author = 'David Lynch';
+
+SELECT * FROM comments WHERE comment = 'wow' AND video_name = 'Avatar' ORDER BY com_time DESC ;
+SELECT video_name,avg(rating),count(rating) FROM video_ratings GROUP BY video_name;

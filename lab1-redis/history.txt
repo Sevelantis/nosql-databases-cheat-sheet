@@ -1,0 +1,100 @@
+keys *
+sismember users bully
+smembers user
+smembers users
+sismember users robbie
+scard users
+keys *
+HSET user:brad name "Brad Traversy"
+HSET user:brad email "brad@gmail.com"
+hget user:brad
+hget user:brad name email
+hget user:brad name
+hget user:brad email
+hgetall user:brad
+HMSET user:john name "John Doe" email "jd@gmail.com" age "25"
+HGETALL user:john
+HKEYS user:john
+HVALS user:john
+HINCRBY user:john age
+
+HDEL user:brad age
+HGETALL user:brad
+HDEL user:brad name
+HGETALL user:brad
+lpush friends john
+get friends
+lrange friends
+lrange friends 0 -1
+lpush friends sally
+lrange friends 0 -1
+rpush friends mike
+lrange friends 0 -1
+lpop friends
+lrange friends 0 -1
+rpop friends
+lrange friends 0 -1
+keys *
+keys user*
+hmset user:john subs "channel1"
+hgetall user:john
+hdel user:john name email age
+hgetall user:john
+hmset user:john subs "channel1#channel3"
+hgetall user:john
+hmset user:mike subs "channel1#channel2#channel3"
+hgetall user:*
+hgetall user:mike
+hmset user:sally subs "channel2#channel3"
+hgetall user:sally
+keys
+keys user*
+keys user:*
+hdel user:brad
+hmdel user:brad
+keys user:*
+hgetall user:brad
+lpush channels:channel1 "message to channel1"
+lpush channels:channel1 "message 2 to channel1"
+lpush channels:channel1 "message 3 to channel1"
+lrange channels:channel1 0 -1
+rpop channels:channel1 0 -1
+rpop channels:channel1
+rpop channels:channel1 0 -1
+lrange channels:channel1 0 -1
+lpush channels:channel2 "message 1 to channel2"
+lpush channels:channel2 "message 2 to channel2"
+lpush channels:channel2 "message 3 to channel2"
+lpush channels:channel3 "message 1 to channel3"
+lpush channels:channel3 "message 2 to channel3"
+lpush channels:channel3 "message 3 to channel3"
+lrange channels:channel3 0 -1
+PING aaaa
+quit -
+publish channel1 "cli message chat1"
+lrange channel1 0 -1
+hgetall user:john
+hget user:john subs
+keys user *
+keys user:*
+flushall
+keys *
+keys user:*
+hset user:jon subs "channel2"
+hmset user:jon subs "channel2"
+hget user:jon subs
+hgetall user:jon
+hmset user:jon subs "channel2"
+hgetall user:jon
+flushall
+keys *
+flushall
+keys *
+hgetall user:mike
+hgetall user:bob
+hgetall user:jon
+flushall
+keys *
+hgetall user:jon
+hgetall user:bob
+hgetall user:mike

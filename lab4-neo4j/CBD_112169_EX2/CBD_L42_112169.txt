@@ -1,0 +1,49 @@
+// NMEC: 112169
+
+#1
+MATCH (actor)-[:ACTED_IN]->(movie)<-[:DIRECTED]-(actor) RETURN DISTINCT actor.name, movie.title
+
+#2 
+MATCH (actor)-[:ACTED_IN]->(movie) WHERE movie.released > 2005 RETURN collect(actor.name) AS actors, movie.title
+
+#3
+MATCH (n1)-[]->(n2) WITH n1, n2, count(*) AS relations WHERE 1 < relations RETURN n1, n2, relations
+
+#4
+MATCH (person1)-[:REVIEWED]->(movie)<-[:REVIEWED]-(person2) RETURN movie.title, person1.name, person2.name
+
+#5
+MATCH (actor1)-[:ACTED_IN]->(movie)<-[:ACTED_IN]-(actor2) WITH actor1, actor2, count(*) AS together WHERE 1 < together RETURN together AS together_movies, actor1.name AS actor1, actor2.name AS actor2
+
+#6
+MATCH (actor)-[:ACTED_IN]->(movie) WHERE movie.title="Apollo 13" RETURN avg(movie.released - actor.born) AS age
+
+#7
+MATCH (actor)-[:ACTED_IN]->(movie) RETURN movie.title, round(avg(movie.released - actor.born)*100)/100 as avg_age ORDER BY avg_age DESC LIMIT 10
+
+#8
+MATCH (actor)-[:ACTED_IN]->(movie) RETURN actor, movie, round(avg(movie.released - actor.born)*100)/100 as avg_age ORDER BY avg_age ASC LIMIT 1
+
+#9
+MATCH shortest_path = shortestPath( (person1:Person{name:"John Cusack"})-[*]-(person2:Person{name:"Demi Moore"}) ) RETURN shortest_path
+
+#10
+MATCH shortest_path = shortestPath( (person1:Person{name:"Keanu Reeves"})-[*]-(person2:Person{name:"Tom Cruise"}) ) RETURN length(shortest_path) AS dimension
+
+#11
+MATCH shortest_path = shortestPath( (person1:Person)-[*]-(person2:Person) ) WHERE person1.name STARTS WITH "Jim" AND person2.name starts WITH "Kevin" RETURN person1.name, person2.name, length(shortest_path) AS dimension ORDER BY dimension ASC LIMIT 1
+
+#12
+MATCH shortest_path = shortestPath( (person1:Person)-[*..2]-(person2:Person {name:'Jim Cash'}) ) WHERE length(shortest_path) = 2 AND person1.name <> person2.name RETURN person1.name, length(shortest_path) AS dimension
+
+#13
+MATCH shortest_path = shortestPath( (person1:Person)-[*]-(person2:Person {name:'Kevin Bacon'}) ) WHERE person1.name <> person2.name RETURN person1.name, length(shortest_path) AS furthest_distance ORDER BY furthest_distance DESC LIMIT 1
+
+#14
+MATCH shortest_path = shortestPath( (person1:Person)-[*]-(person2:Person) ) WHERE person1.name <> person2.name RETURN person1.name, length(shortest_path) AS furthest_distance ORDER BY furthest_distance DESC LIMIT 1
+
+#15
+MATCH shortest_path = shortestPath( (person1:Person)-[*]-(person2:Person) ) WHERE person1.name <> person2.name RETURN length(shortest_path) AS dimension, count(*) AS distribution_of_distances ORDER BY dimension
+
+#16
+MATCH shortest_path = shortestPath( (person1:Person)-[ACTED_IN*]-(person2:Person) ) WHERE person1.name <> person2.name RETURN person1.name, avg(length(shortest_path)) as avg_dimension ORDER BY avg_dimension asc limit 10

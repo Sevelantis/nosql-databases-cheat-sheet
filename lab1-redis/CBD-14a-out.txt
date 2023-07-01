@@ -1,0 +1,37 @@
+(1) susann
+/Users/mir/Library/Java/JavaVirtualMachines/corretto-17.0.3/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=59440:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/mir/IdeaProjects/db-lab/target/classes:/Users/mir/.m2/repository/redis/clients/jedis/4.2.3/jedis-4.2.3.jar:/Users/mir/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/Users/mir/.m2/repository/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar:/Users/mir/.m2/repository/org/json/json/20211205/json-20211205.jar:/Users/mir/.m2/repository/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar Main
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Search for ('Enter' for quit): 
+susann
+susann
+susanna
+susannah
+susanne
+
+Process finished with exit code 0
+
+(2) zora
+/Users/mir/Library/Java/JavaVirtualMachines/corretto-17.0.3/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=59455:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/mir/IdeaProjects/db-lab/target/classes:/Users/mir/.m2/repository/redis/clients/jedis/4.2.3/jedis-4.2.3.jar:/Users/mir/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/Users/mir/.m2/repository/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar:/Users/mir/.m2/repository/org/json/json/20211205/json-20211205.jar:/Users/mir/.m2/repository/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar Main
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Search for ('Enter' for quit): 
+zora
+zora
+zorah
+zorana
+
+Process finished with exit code 0
+
+(3) bully
+/Users/mir/Library/Java/JavaVirtualMachines/corretto-17.0.3/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=59461:/Applications/IntelliJ IDEA.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/mir/IdeaProjects/db-lab/target/classes:/Users/mir/.m2/repository/redis/clients/jedis/4.2.3/jedis-4.2.3.jar:/Users/mir/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/Users/mir/.m2/repository/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar:/Users/mir/.m2/repository/org/json/json/20211205/json-20211205.jar:/Users/mir/.m2/repository/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar Main
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Search for ('Enter' for quit): 
+bully
+
+Process finished with exit code 0
+

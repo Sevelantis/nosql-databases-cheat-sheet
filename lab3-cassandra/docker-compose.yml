@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  cassandra:
+    container_name: cassandra_v1
+    image: cassandra:4.1
+    ports:
+      - '9999:9042'
+    volumes:
+      - ./cassandra_data:/var/lib/cassandra
+      - ./cassandra.yaml:/etc/cassandra/cassandra.yaml

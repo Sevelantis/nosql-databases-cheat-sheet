@@ -1,0 +1,5 @@
+Massive insertion can be done with a command:
+```
+echo "SADD massive_insertion $(cat CBD-12-batch.txt | tr '\n' ' ')" | redis-cli --pipe
+```
+It can be done programatically as well. It was shown in attached programs.
